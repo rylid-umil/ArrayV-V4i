@@ -1,4 +1,4 @@
-package io.github.arrayv.sorts.exchange;
+package io.github.arrayv.sorts.select;
 
 import io.github.arrayv.main.ArrayVisualizer;
 import io.github.arrayv.sorts.templates.Sort;
@@ -37,7 +37,7 @@ public final class SkimSort extends Sort {
         this.setSortListName("Skim");
         this.setRunAllSortsName("Skim Sort");
         this.setRunSortName("Skimsort");
-        this.setCategory("Exchange Sorts");
+        this.setCategory("Selection Sorts");
         this.setBucketSort(false);
         this.setRadixSort(false);
         this.setUnreasonablySlow(false);
