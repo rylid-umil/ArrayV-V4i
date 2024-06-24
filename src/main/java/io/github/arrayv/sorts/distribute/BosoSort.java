@@ -14,7 +14,7 @@
    }
    public void runSort(int[] array, int length, int bucketCount) {
      while (!this.isArraySorted(array, length)) {
-       i = BogoSorting.randInt(0, length-1);
+       int i = BogoSorting.randInt(0, length-1);
          Writes.swap(array, i, i+1, this.delay, true, false);
    }
  }
