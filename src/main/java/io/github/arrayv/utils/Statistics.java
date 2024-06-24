@@ -52,6 +52,7 @@ public final class Statistics {
 
     public void updateStats(ArrayVisualizer arrayVisualizer) {
         this.sortCategory = arrayVisualizer.getCategory();
+        this.shuffleType = arrayVisualizer.getShuffle();
         this.sortHeading = arrayVisualizer.getHeading();
         this.sortExtraHeading = arrayVisualizer.getExtraHeading();
         int showUnique = Math.min(arrayVisualizer.getUniqueItems(), arrayVisualizer.getCurrentLength());
@@ -88,6 +89,9 @@ public final class Statistics {
 
     public String getSortIdentity() {
         return this.sortCategory + ": " + this.sortHeading;
+    }
+    public String getShuffleIdentity {
+        return " on " + this.shuffleType;
     }
     public String getArrayLength() {
         return this.arrayLength + this.sortExtraHeading;
