@@ -10,6 +10,16 @@ import io.github.arrayv.sorts.templates.Sort;
 public final class StalinSort extends Sort {
     public StalinSort(ArrayVisualizer arrayVisualizer) {
         super(arrayVisualizer);
+
+        this.setSortListName("Stalin");
+        this.setRunAllSortsName("Stalin Sort");
+        this.setRunSortName("Stalinsort");
+        this.setCategory("Miscellaneous Sorts");
+        this.setBucketSort(false);
+        this.setRadixSort(false);
+        this.setUnreasonablySlow(false);
+        this.setUnreasonableLimit(0);
+        this.setBogoSort(false);
     }
 
     @Override
