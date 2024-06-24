@@ -56,15 +56,16 @@ public final class SkimSort extends Sort {
 			Writes.write(skims, h, g, 1, true, true);
 			h--;
 		}
-	int k = length;
+	int k = length - 1;
 	for(int i = length - 1; i > 0; i--) {
 	    boolean swapped = false;
-            for(int j = 0; j < i; j++) {
-                if(Reads.compareValues(array[j], skims[k] - 1) == 1 || Reads.compareValues(array[j], skims[k] - 1) == 0){
+            for(int j = 0; j < k; j++) {
+                if(Reads.compareValues(array[j], skims[i] - 1) == 1 || Reads.compareValues(array[j], skims[i] - 1) == 0){
 			Highlights.markArray(1, j);
 	   		Highlights.markArray(2, j + 1);
-	   		Highlights.markArray(3, k);
-			if(Reads.compareValues(array[j + 1], skims [k] - 1) == 1 || Reads.compareValues(array[j + 1], skims[k] - 1) == 0) {
+	   		Highlights.markArray(3, i);
+			Highlights.markArray(4, k);
+			if(Reads.compareValues(array[j + 1], skims [i] - 1) == 1 || Reads.compareValues(array[j + 1], skims[i] - 1) == 0) {
 				k++;
 				if(Reads.compareValues(array[j], array[j + 1]) == 1) {
 					Writes.swap(array, j, j + 1, 0.075, true, false);
