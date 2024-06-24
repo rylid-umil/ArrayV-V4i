@@ -6,17 +6,17 @@ import io.github.arrayv.sorts.templates.Sort;
 
 public final class BurntPancakeSort extends Sort {
   public BurntPancakeSort(ArrayVisualizer arrayVisualizer) {
-    super(arrayVisualizer);
+      super(arrayVisualizer);
 
-    this.setSortListName("Burnt Pancake");
-    this.setRunAllSortsName("Burnt Pancake Sorting");
-    this.setRunSortName("Burnt Pancakesort");
-    this.setCategory("Miscellaneous Sorts");
-    this.setBucketSort(false);
-    this.setRadixSort(false);
-    this.setUnreasonablySlow(false);
-    this.setUnreasonableLimit(0);
-    this.setBogoSort(false);
+      this.setSortListName("Burnt Pancake");
+      this.setRunAllSortsName("Burnt Pancake Sorting");
+      this.setRunSortName("Burnt Pancakesort");
+      this.setCategory("Miscellaneous Sorts");
+      this.setBucketSort(false);
+      this.setRadixSort(false);
+      this.setUnreasonablySlow(false);
+      this.setUnreasonableLimit(0);
+      this.setBogoSort(false);
   }
 
   @Override
