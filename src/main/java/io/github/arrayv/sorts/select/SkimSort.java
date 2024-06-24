@@ -58,8 +58,8 @@ public final class SkimSort extends Sort {
 		}
         for(int i = length - 1; i > 0; i--) {
             boolean sorted = true;
-            for(int j = 0; j < i; j++) {
-                if(Reads.compareValues(array[j], skims[i]) >= 0){
+            for(int j = 0; j < (i + 1); j++) {
+                if(Reads.compareValues(array[j], skims[i] - 1) == 1){
                     Writes.swap(array, j, j + 1, 0.075, true, false);
                     Highlights.markArray(2, j + 1);
                 }
