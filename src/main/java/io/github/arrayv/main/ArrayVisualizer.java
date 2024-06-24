@@ -83,6 +83,7 @@ public final class ArrayVisualizer {
     private enum StatisticType {
         LINE_BREAK,
         SORT_IDENTITY,
+        SHUFFLE_IDENTITY,
         ARRAY_LENGTH,
         FRAMERATE,
         SORT_DELAY,
@@ -100,6 +101,7 @@ public final class ArrayVisualizer {
         private static final Map<String, StatisticType> CONFIG_KEYS = Collections.unmodifiableMap(new HashMap<String, StatisticType>() {{
             put("",         LINE_BREAK);
             put("sort",     SORT_IDENTITY);
+            put("shuff",  SHUFFLE_IDENTITY);
             put("length",   ARRAY_LENGTH);
             put("fps",      FRAMERATE);
             put("delay",    SORT_DELAY);
@@ -152,6 +154,7 @@ public final class ArrayVisualizer {
     private final boolean disabledStabilityCheck;
 
     private String category;
+    private String shuffleType
     private String heading;
     private String extraHeading;
     private Font typeFace;
@@ -342,7 +345,7 @@ public final class ArrayVisualizer {
         this.arrays = new ArrayList<>();
         this.arrays.add(this.array);
 
-        this.fontSelection = "Times New Roman";
+        this.fontSelection = "Monospaced";
         this.fontSelectionScale = 25;
         List<StatisticType> statsInfoList = new ArrayList<>();
         Throwable statsLoadException = null;
@@ -400,6 +403,7 @@ public final class ArrayVisualizer {
             // @checkstyle:off IndentationCheck - There's custom indentation here to make things more readable
             statsConfig = new StatisticType[] {
                 StatisticType.SORT_IDENTITY,
+                StatisticTyoe.SHUFFLE_IDENTITY
                 StatisticType.ARRAY_LENGTH,
                     StatisticType.LINE_BREAK,
                 StatisticType.SORT_DELAY,
@@ -632,6 +636,9 @@ public final class ArrayVisualizer {
                 case SORT_IDENTITY:
                     stat = statSnapshot.getSortIdentity();
                     break;
+                case SHUFFLE_IDENTITY:
+                    stat = statSnapshot.getShuffleIdentity();
+                    break;
                 case ARRAY_LENGTH:
                     stat = statSnapshot.getArrayLength();
                     break;
@@ -709,9 +716,9 @@ public final class ArrayVisualizer {
                     "Warning! "
                         + "Your computer's CPU probably can't handle more than 2^23 elements at any "
                         + "framrate not significantly less than 1. Would you still like "
-                        + "to re-enable graphics?",
+                        + "to re-enable graphics? (and possibly blow up your cpu)",
                     "Warning!", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE,
-                    null, new String[] { "Yes", "Please save my GPU!" }, "Please save my GPU!");
+                    null, new String[] { "i dont care if my computer becomes a nuke", "Please save my GPU!" }, "Please save my GPU!");
                 if (warning != 0) {
                     enabled = true;
                 }
@@ -961,6 +968,9 @@ public final class ArrayVisualizer {
     public String getCategory() {
         return this.category;
     }
+    public String getShuffle() {
+        return this.shuffleType;
+    }
     public String getHeading() {
         return this.heading;
     }
@@ -972,6 +982,9 @@ public final class ArrayVisualizer {
     }
     public void setCategory(String text) {
         this.category = text;
+    }
+    public void setShuffle(String text) {
+        this.shuffle = text;
     }
     public void setExtraHeading(String text) {
         this.extraHeading = text;
@@ -1420,9 +1433,10 @@ public final class ArrayVisualizer {
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.window.setSize((int) (screenSize.getWidth() / 2), (int) (screenSize.getHeight() / 2));
 
-        StringBuilder title = new StringBuilder("w0rthy's Array Visualizer - ");
+        StringBuilder title = new StringBuilder("w0rthy's Array Visualizer, Ishu100's sorts, ");
         title.append(this.sorts.length);
-        title.append(" Sorts, 15 Visual Styles, and Infinite Inputs to Sort");
+        title.append(" Sorts currently implemented.");
+        title.append(" (atleast one is broken i think)");
         String versionName = buildInfo.getProperty("version");
         String commitSha = buildInfo.getProperty("commitId");
         if (commitSha != null || versionName != null) {
