@@ -11,7 +11,7 @@ import io.github.arrayv.sorts.templates.BogoSorting;
      this.setSortListName("Boso");
      this.setRunAllSortsName("Boso Sort (Stupid Bubble Bogo Sort)");
      this.setRunSortName("Boso Sort");
-     this.setCategory("Bogo Sorts");
+     this.setCategory("Impractical Sorts");
      this.setComparisonBased(true);
      this.setBucketSort(false);
      this.setRadixSort(false);
