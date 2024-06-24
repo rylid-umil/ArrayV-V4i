@@ -11,6 +11,7 @@ public final class Statistics {
     private String sortHeading;
     private String sortExtraHeading;
     private String arrayLength;
+    private String shuffleType;
 
     private String framerate;
     private String sortDelay;
