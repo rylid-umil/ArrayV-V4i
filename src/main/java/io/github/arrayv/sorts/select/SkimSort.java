@@ -76,7 +76,7 @@ public final class SkimSort extends Sort {
 			}
 			else {
 				Writes.swap(array, j, j + 1, 0.075, true, false);
-				swapped = true
+				swapped = true;
 			}
 			Delays.sleep(0.025);
 		};
