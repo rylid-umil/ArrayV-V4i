@@ -56,7 +56,7 @@ public final class SkimSort extends Sort {
 			Writes.write(skims, h, g, 1, true, true);
 			h--;
 		}
-	int k = max - 1;
+	int k = length;
 	boolean swapped = false;
 	for(int i = length - 1; i > 0; i--) {
 	    swapped = false;
