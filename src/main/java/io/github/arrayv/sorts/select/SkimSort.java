@@ -49,15 +49,14 @@ public final class SkimSort extends Sort {
     public void runSort(int[] array, int length, int bucketCount) {
         int skimvalue = length;
         for(int i = length - 1; i > 0; i--) {
-            boolean sorted = true
+            boolean sorted = true;
             for(int j = 0; j < i; j++) {
-                Reads.addComparison()
+                Reads.addComparison();
                 if(array[j] == skimvalue){
                     Writes.swap(array, j, j + 1, 0.075, true, false);
-                    
                 }
                 if(Reads.compareValues(array[j], array[j+1]) == 1){
-                    sorted = false
+                    sorted = false;
                 }
                 Highlights.markArray(1, j);
                 Highlights.markArray(2, j + 1);
