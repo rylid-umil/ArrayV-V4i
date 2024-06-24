@@ -24,8 +24,8 @@ import io.github.arrayv.sorts.templates.BogoSorting;
        int i = BogoSorting.randInt(0, length-1);
 	   int highlight = BogoSorting.randomInt(0, length-1);
        Writes.swap(array, i, i+1, this.delay, false, false);
-	   Highlights.markArray(1, highlight)
-	   Highlights.markArray(2, highlight + 1)
+	   Highlights.markArray(1, highlight);
+	   Highlights.markArray(2, highlight + 1);
 		 
    }
  }
