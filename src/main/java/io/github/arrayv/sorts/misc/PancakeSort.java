@@ -19,7 +19,7 @@ public final class PancakeSort extends Sort {
 
         this.setSortListName("Pancake");
         this.setRunAllSortsName("Pancake Sorting");
-        this.setRunSortName("Pancake Sort");
+        this.setRunSortName("Pancakesort");
         this.setCategory("Miscellaneous Sorts");
         this.setBucketSort(false);
         this.setRadixSort(false);
