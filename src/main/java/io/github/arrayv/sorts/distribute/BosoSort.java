@@ -21,9 +21,9 @@ import io.github.arrayv.sorts.templates.BogoSorting;
    }
    public void runSort(int[] array, int length, int bucketCount) {
      while (!this.isArraySorted(array, length)) {
-       int i = BogoSorting.randInt(0, length-1);
-	   int highlight = BogoSorting.randInt(0, length-1);
-       Writes.swap(array, i, i+1, this.delay, false, false);
+       int i = BogoSorting.randInt(0, length - 1);
+	   int highlight = BogoSorting.randInt(0, length - 1);
+       Writes.swap(array, i, i+1, this.delay, true, false);
 	   Highlights.markArray(1, highlight);
 	   Highlights.markArray(2, highlight + 1);
 		 
