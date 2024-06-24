@@ -53,7 +53,7 @@ public final class SkimSort extends Sort {
         int[] skims = Writes.createExternalArray(length);
         int h = max;
 		for(int g = length; g > 0; g--) {
-			Writes.write(skims, g, h, 1, true, true);
+			Writes.write(skims, h, g, 1, true, true);
 			h--;
 		}
         for(int i = length - 1; i > 0; i--) {
