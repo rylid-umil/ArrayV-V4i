@@ -57,8 +57,9 @@ public final class SkimSort extends Sort {
 			h--;
 		}
 	int k = length - 1;
+	boolean swapped = false;
 	for(int i = length - 1; i > 0; i--) {
-	    boolean swapped = false;
+	    swapped = false;
             for(int j = 0; j < k; j++) {
                 if(Reads.compareValues(array[j], skims[i] - 1) == 1 || Reads.compareValues(array[j], skims[i] - 1) == 0){
 			Highlights.markArray(1, j);
@@ -79,10 +80,10 @@ public final class SkimSort extends Sort {
 			Writes.swap(array, j, j + 1, 0.075, true, false);
 			swapped = true;
 		};
-	   if (swapped = true) {
-		   k--;
-	        };
            };
+	   if (swapped = true) {
+	   	k--;
+	   };
            Delays.sleep(0.025);
 	}
 	Writes.deleteExternalArray(skims);
