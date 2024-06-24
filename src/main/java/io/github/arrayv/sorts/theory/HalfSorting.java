@@ -11,9 +11,8 @@ import io.github.arrayv.sorts.templates.Sort;
  *  
  *  It can NOT shift from the last to the first, just the first to the last.
  */
-
 public final class HalfSorting extends Sort {
-    public BadSort(ArrayVisualizer arrayVisualizer) {
+    public HalfSorting(ArrayVisualizer arrayVisualizer) {
         super(arrayVisualizer);
 
         this.setSortListName("Half Sorting");
@@ -30,7 +29,7 @@ public final class HalfSorting extends Sort {
     @Override
     public void runSort(int[] array, int length, int bucketCount) {
       int highest = 0;
-      int l = 0
+      int l = 0;
       int[] excluded = Writes.createExternalArray(length);
       for (int i = 0; i < ((Math.ceil(length / 2)) - 1); i++) {
         highest = 0;
@@ -44,14 +43,14 @@ public final class HalfSorting extends Sort {
           Delays.sleep(0.01);
         };
         l = 0;
-        for (int k = highest; k > ((Math.ceil(length / 2)) - 1); (; k) {
+        for (int k = highest; k > ((Math.ceil(length / 2)) - 1); k) {
           if (excluded[l] == 0) {
             Writes.multiSwap(array, l, length - l, 0.075, true, false);
             Writes.multiSwap(excluded, l, length - l, 0.075, true, true);
             k--;
           }
           else {
-            l++
+            l++;
           };
           Highlghts.markArray(1, l);
           Highlights.markArray(2, k);
@@ -61,7 +60,7 @@ public final class HalfSorting extends Sort {
       Writes.deleteExternalArray(excludes);
       BinaryInsertionSort.customBinaryInsert(array, 0, (Math.ceil(length / 2)) - 1, 0.1);
       for (int i = 0; i < ((Math.ceil(length / 2)) - 1); i++) {
-        Writes.multiSwap(array, 1, 1 - length, 0.075, true, false)
+        Writes.multiSwap(array, 1, 1 - length, 0.075, true, false);
       };
       BinaryInsertionSort.customBinaryInsert(array, 0, (Math.ceil(length / 2)) - 1, 0.1);
     }
