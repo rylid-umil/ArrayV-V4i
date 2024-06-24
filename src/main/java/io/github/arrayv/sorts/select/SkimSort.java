@@ -51,7 +51,7 @@ public final class SkimSort extends Sort {
         for(int i = length - 1; i > 0; i--) {
             boolean sorted = true;
             for(int j = 0; j < i; j++) {
-                Reads.dummyCompare()
+                Reads.dummyCompare();
                 if(array[j] >= skimvalue){
                     Writes.swap(array, j, j + 1, 0.075, true, false);
                     Highlights.markArray(2, j + 1);
