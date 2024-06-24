@@ -52,7 +52,7 @@ public final class SkimSort extends Sort {
             boolean sorted = true;
             for(int j = 0; j < i; j++) {
                 Reads.addComparison();
-                if(array[j] == skimvalue){
+                if(array[j] > skimvalue){
                     Writes.swap(array, j, j + 1, 0.075, true, false);
                 }
                 if(Reads.compareValues(array[j], array[j+1]) == 1){
