@@ -6,17 +6,17 @@ import io.github.arrayv.sorts.templates.Sort;
 
 public final class PancakeInsertionSort extends Sort {
     public PancakeInsertionSort(ArrayVisualizer arrayVisualizer) {
-    super(arrayVisualizer);
+      super(arrayVisualizer);
 
-    this.setSortListName("Pancake Insertion");
-    this.setRunAllSortsName("Pancake Insertion Sort");
-    this.setRunSortName("Pancake Insertsort");
-    this.setCategory("Miscellaneous Sorts");
-    this.setBucketSort(false);
-    this.setRadixSort(false);
-    this.setUnreasonablySlow(false);
-    this.setUnreasonableLimit(0);
-    this.setBogoSort(false);
+      this.setSortListName("Pancake Insertion");
+      this.setRunAllSortsName("Pancake Insertion Sort");
+      this.setRunSortName("Pancake Insertsort");
+      this.setCategory("Miscellaneous Sorts");
+      this.setBucketSort(false);
+      this.setRadixSort(false);
+      this.setUnreasonablySlow(false);
+      this.setUnreasonableLimit(0);
+      this.setBogoSort(false);
     }
 
     private int monoboundFw(int[] array, int start, int end, int value) {
