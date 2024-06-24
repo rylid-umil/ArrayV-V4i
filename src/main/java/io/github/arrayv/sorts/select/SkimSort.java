@@ -28,7 +28,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  *
  */
- // bubble sort but bad :D
+ // bubble sort but bad :D. basically an inverse peelsort but uses an auxillary array for skims. totally not because using a variable didnt work for some weason
 
 public final class SkimSort extends Sort {
     public SkimSort(ArrayVisualizer arrayVisualizer) {
@@ -47,12 +47,19 @@ public final class SkimSort extends Sort {
 
     @Override
     public void runSort(int[] array, int length, int bucketCount) {
-        int skimvalue = length;
+        int min = Reads.analyzeMin(array, length, 0.075, true);
+        int max = Reads.analyzeMax(array, length, 0.075, true);
+        
+        int[] skims = createExternalArray(length);
+        int h = max;
+		for(int g = length; g > 0; g--) {
+			Writes.write(skims, g, h, 1, true, true);
+			h--;
+		}
         for(int i = length - 1; i > 0; i--) {
             boolean sorted = true;
             for(int j = 0; j < i; j++) {
-                Reads.dummyCompare();
-                if(array[j] >= skimvalue){
+                if(Reads.compareValues(array[j], skims[i) >= 0){
                     Writes.swap(array, j, j + 1, 0.075, true, false);
                     Highlights.markArray(2, j + 1);
                 }
@@ -60,10 +67,11 @@ public final class SkimSort extends Sort {
                     sorted = false;
                 }
                 Highlights.markArray(1, j);
+				Highlights.markArray(3, i);
                 Delays.sleep(0.025);
             }
-            skimvalue = skimvalue--;
             if(sorted) break;
         }
+		Writes.deleteExternalArray(skims);
     }
 }
