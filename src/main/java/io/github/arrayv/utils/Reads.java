@@ -366,4 +366,16 @@ public final class Reads {
     public ArrayList<Integer> getNetworkIndices() {
         return networkIndices;
     }
+    public void dummyCompare() {
+        if (arrayVisualizer.sortCanceled()) throw new StopSort();
+        this.comparisons.incrementAndGet();
+
+        int cmpVal;
+
+        Timer.startLap("Compare");
+
+        cmpVal = Integer.compare(1, 1);
+
+        Timer.stopLap();
+    }
 }
