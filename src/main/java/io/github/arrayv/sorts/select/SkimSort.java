@@ -52,11 +52,11 @@ public final class SkimSort extends Sort {
         
         int[] skims = Writes.createExternalArray(length);
         int h = max;
-		for(int g = length; g > 0; g--) {
+		for(int g = length - (min - 1); g > 0; g--) {
 			Writes.write(skims, h, g, 1, true, true);
 			h--;
 		}
-	int k = length - 1;
+	int k = max - 1;
 	boolean swapped = false;
 	for(int i = length - 1; i > 0; i--) {
 	    swapped = false;
