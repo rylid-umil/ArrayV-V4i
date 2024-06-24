@@ -56,9 +56,9 @@ public final class SkimSort extends Sort {
 			Writes.write(skims, h, g, 1, true, true);
 			h--;
 		}
-        for(int i = length; i > 0; i--) {
+        for(int i = length - 1; i > 0; i--) {
             boolean sorted = true;
-            for(int j = 0; j < (i + 1); j++) {
+            for(int j = 0; j < i; j++) {
                 if(Reads.compareValues(array[j], skims[i] - 1) == 1){
                     Writes.swap(array, j, j + 1, 0.075, true, false);
                 }
