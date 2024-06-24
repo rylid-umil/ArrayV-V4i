@@ -43,7 +43,7 @@ public final class HalfSorting extends Sort {
           Delays.sleep(0.01);
         };
         l = 0;
-        for (int k = highest; k > ((Math.ceil(length / 2)) - 1); k) {
+        for (int k = highest; k > ((Math.ceil(length / 2)) - 1); k = k) {
           if (excluded[l] == 0) {
             Writes.multiSwap(array, l, length - l, 0.075, true, false);
             Writes.multiSwap(excluded, l, length - l, 0.075, true, true);
