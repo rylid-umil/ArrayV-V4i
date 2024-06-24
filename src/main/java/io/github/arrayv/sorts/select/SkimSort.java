@@ -50,7 +50,7 @@ public final class SkimSort extends Sort {
         int min = Reads.analyzeMin(array, length, 0.075, true);
         int max = Reads.analyzeMax(array, length, 0.075, true);
         
-        int[] skims = createExternalArray(length);
+        int[] skims = Writes.createExternalArray(length);
         int h = max;
 		for(int g = length; g > 0; g--) {
 			Writes.write(skims, g, h, 1, true, true);
