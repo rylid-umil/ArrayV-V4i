@@ -59,7 +59,7 @@ public final class SkimSort extends Sort {
         for(int i = length - 1; i > 0; i--) {
             boolean sorted = true;
             for(int j = 0; j < i; j++) {
-                if(Reads.compareValues(array[j], skims[i) >= 0){
+                if(Reads.compareValues(array[j], skims[i] >= 0){
                     Writes.swap(array, j, j + 1, 0.075, true, false);
                     Highlights.markArray(2, j + 1);
                 }
@@ -67,7 +67,7 @@ public final class SkimSort extends Sort {
                     sorted = false;
                 }
                 Highlights.markArray(1, j);
-				Highlights.markArray(3, i);
+		Highlights.markArray(3, i);
                 Delays.sleep(0.025);
             }
             if(sorted) break;
