@@ -3,6 +3,7 @@ package io.github.arrayv.main;
 import io.github.arrayv.panes.JEnhancedOptionPane;
 import io.github.arrayv.panes.JErrorPane;
 import io.github.arrayv.sortdata.SortInfo;
+import io.github.arrayv.utils.ShuffleInfo
 import io.github.arrayv.sorts.templates.Sort;
 import io.github.arrayv.utils.Timer;
 import io.github.arrayv.utils.*;
@@ -123,6 +124,7 @@ public final class RunSort {
             public void run() {
                 try {
                     SortInfo sortInfo = arrayVisualizer.getSorts()[selection];
+                    ShuffleInfo shuffInfo = Shuffles.Shuffles
                     int extra;
 
                     if (sortInfo.getQuestion() != null) {
@@ -168,7 +170,7 @@ public final class RunSort {
                         goAhead = warning == 0;
                     } else if (sortInfo.getUnreasonableLimit() > 0 && arrayVisualizer.getCurrentLength() > sortInfo.getUnreasonableLimit()) {
 
-                        Object[] options = { "Let's see how bad " + sortInfo.getRunName() + " is!", "Cancel" };
+                        Object[] options = { "Let's see how bad " + sortInfo.getRunName() + " is!", "Nah, I don't have all day" };
 
                         int warning;
                         if (sortInfo.isBogoSort()) {
@@ -196,7 +198,7 @@ public final class RunSort {
                         Sort sortInstance = sortInfo.getFreshInstance();
 
                         if (sortInfo.getRunName().equals("In-Place LSD Radix")) {
-                            sounds.changeVolume(0.01); // Here to protect your ears :)
+                            sounds.changeVolume(0.01); // Here to protect your ears :) (thanks)
                         }
 
                         arrayManager.toggleMutableLength(false);
@@ -204,6 +206,7 @@ public final class RunSort {
 
                         arrayVisualizer.setHeading(sortInfo.getRunName());
                         arrayVisualizer.setCategory(sortInfo.getCategory());
+                        arrayVisualizer.setShuffle(
 
                         realTimer.enableRealTimer();
                         boolean antiq = arrayVisualizer.useAntiQSort();
