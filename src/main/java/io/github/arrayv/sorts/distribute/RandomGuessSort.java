@@ -20,6 +20,7 @@ public final class RandomGuessSort extends BogoSorting {
 
     // PROGRAMMER'S NOTE: This sort is intentionally bad, it is purposefully un-optimized.
     // OTHER PROGRAMMER'S NOTE: haha too bad this isn't even the same sort anymore
+    // OTHER OTHER PROGRAMMER'S NOTE: im gonna make a sort called [insert keyboard smash here]
     @Override
     public void runSort(int[] array, int length, int bucketCount) {
         // just guessing the indices
