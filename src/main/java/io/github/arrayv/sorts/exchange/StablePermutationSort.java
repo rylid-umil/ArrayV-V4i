@@ -36,7 +36,7 @@ public final class StablePermutationSort extends BogoSorting {
         this.setSortListName("Stable Permutation");
         this.setRunAllSortsName("Stable Permutation Sort");
         this.setRunSortName("Stable Permutation Sort");
-        this.setCategory("Exchange Sorts");
+        this.setCategory("Impractical Sorts");
         this.setBucketSort(false);
         this.setRadixSort(false);
         this.setUnreasonablySlow(true);
