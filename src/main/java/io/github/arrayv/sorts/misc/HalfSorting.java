@@ -18,7 +18,7 @@ public final class HalfSorting extends Sort {
         this.setSortListName("Half");
         this.setRunAllSortsName("Half-access Sorting");
         this.setRunSortName("Halfsorting");
-        this.setCategory("Misc Sorting/Restricted Access");
+        this.setCategory("Theory Sorting");
         this.setBucketSort(false);
         this.setRadixSort(false);
         this.setUnreasonablySlow(false);
@@ -76,11 +76,11 @@ public final class HalfSorting extends Sort {
 		    Delays.sleep(0.025);
             if (excluded[l] == -1) {
 			  swapped = true;
-              for (int ss = l; ss < length - 1, ss++){
+              for (int ss = l; ss < length - 1; ss++){
 				Writes.swap(array, ss, ss + 1, 0.001, true, false);
 				Writes.swap(excluded, ss, ss + 1, 0.001, true, true);
-				Highlights.markArray(1, ss)
-				Highlights.markArray(2, ss + 1)
+				Highlights.markArray(1, ss);
+				Highlights.markArray(2, ss + 1);
 			  }
 			  k--;
 			  kp = k;
@@ -104,10 +104,10 @@ public final class HalfSorting extends Sort {
 	  BinaryInsertionSort binaryInserter = new BinaryInsertionSort(this.arrayVisualizer);
       binaryInserter.customBinaryInsert(array, 0, z, 0.1);
       for (int r = 0; r < (half + 1); r++) {
-        for (int ss = 0; ss < length - 1, ss++){
+        for (int ss = 0; ss < length - 1; ss++){
 		  Writes.swap(array, ss, ss + 1, 0.001, false, false);
-		  Highlights.markArray(1, ss)
-		  Highlights.markArray(2, ss + 1)
+		  Highlights.markArray(1, ss);
+		  Highlights.markArray(2, ss + 1);
 		}
       };
       binaryInserter.customBinaryInsert(array, 0, z, 0.1);
