@@ -124,7 +124,6 @@ public final class RunSort {
             public void run() {
                 try {
                     SortInfo sortInfo = arrayVisualizer.getSorts()[selection];
-                    ShuffleInfo shuffInfo = Shuffles.Shuffles
                     int extra;
 
                     if (sortInfo.getQuestion() != null) {
@@ -206,7 +205,6 @@ public final class RunSort {
 
                         arrayVisualizer.setHeading(sortInfo.getRunName());
                         arrayVisualizer.setCategory(sortInfo.getCategory());
-                        arrayVisualizer.setShuffle(
 
                         realTimer.enableRealTimer();
                         boolean antiq = arrayVisualizer.useAntiQSort();
