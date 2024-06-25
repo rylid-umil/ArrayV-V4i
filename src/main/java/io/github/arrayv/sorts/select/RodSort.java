@@ -27,8 +27,8 @@ public final class RodSort extends Sort {
     
     public void runSort(int[] array, int length, int bucketCount) {
         //that's a very good grade, a++! /j
-        for(int a = 0; a < length - 1, a++) {
-            for(int i = a; i < length, i + 1) {
+        for(int a = 0; a < length - 1; a++) {
+            for(int i = a; i < length; i++) {
                 for(int j = a; j < length; j++) {
                     if(Reads.compareValues(array[i], array[j]) == 1) {
                         i = j;
