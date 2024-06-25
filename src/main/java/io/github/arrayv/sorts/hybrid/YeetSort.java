@@ -20,7 +20,7 @@ public final class YeetSort extends Sort {
         this.setBucketSort(false);
         this.setRadixSort(false);
         this.setUnreasonablySlow(true);
-        this.setUnreasonableLimit(1024);
+        this.setUnreasonableLimit(512);
         this.setBogoSort(false);
     };
 
@@ -28,12 +28,12 @@ public final class YeetSort extends Sort {
         boolean sorted = true;
         for(int i = length - 1; i > 0; i--) {
             sorted = true;
-            for(int j = 0; j < i - 1; j++) {
+            for(int j = 0; j < length - 1; j++) {
                 Highlights.markArray(1, j);
                 Highlights.markArray(2, j + 1);
                 Delays.sleep(0.025);
                 if (Reads.compareValues(array[j], array[j + 1]) == 1) {
-                    Writes.multiSwap(array, j, i, 0.010, true, false);
+                    Writes.multiSwap(array, j, length - 1, 0, true, false);
                     sorted = false;
                 };
             };
