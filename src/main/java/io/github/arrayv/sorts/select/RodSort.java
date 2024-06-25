@@ -5,9 +5,7 @@ import io.github.arrayv.sorts.templates.Sort;
 
 /*
  *
-  Rod sort has two spots, i and j, which both start at 0. J iterates throguh the list, and if ever the item at j is greater than the one at i,
-set i to the item at j, and set j to zero. If i reaches the end of the unsorted segment, swap the item at i and the item previous to the
-sorted segment, and start a new pass. Repeat N times.
+  bad sort but even worse
  *
  */
 public final class RodSort extends Sort {
@@ -39,7 +37,7 @@ public final class RodSort extends Sort {
                     Highlights.markArray(2, i);
                     Delays.sleep(0.01);
                 };
-                Writes.swap(array, i, a - 1, 0.03, true, false);
+                Writes.swap(array, i, a, 0.03, true, false);
             };
         };
     };
