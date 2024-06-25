@@ -1,7 +1,7 @@
-package io.github.arrayv.sorts.distribute
+package io.github.arrayv.sorts.distribute;
 
-import io.github.arrayv.main.ArrayVisualizer
-import io.github.arrayv.sorts.templates.BogoSorting
+import io.github.arrayv.main.ArrayVisualizer;
+import io.github.arrayv.sorts.templates.BogoSorting;
 
 //literally sets random integers from 0 to max. if its sorted, good. Probably will
 //NEVER result in the same data distribution as the previous.
