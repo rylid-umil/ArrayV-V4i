@@ -7,7 +7,7 @@ import io.github.arrayv.sorts.templates.BogoSorting;
 //NEVER result in the same data distribution as the previous.
 
 public final class JfkndsSort extends BogoSorting {
-  public JfkndsSort (ArrayVisualizer arrayvisualizer) {
+  public JfkndsSort(ArrayVisualizer arrayvisualizer) {
     super(arrayVisualizer);
     this.setSortListName("Jfknds");
     this.setRunAllSortsName("Jfknds Sort");
@@ -24,7 +24,7 @@ public final class JfkndsSort extends BogoSorting {
     int min = Reads.analyzeMin(array, length, 0.05, true);
     int max = Reads.analyzeMax(array, length, 0.05, true);
     while (!this.isArraySorted(array, length)) {
-      for (i = 0; i < length; i++) {
+      for (int i = 0; i < length; i++) {
         Writes.write(array, i, BogoSorting.randomInt(min, max), this.delay, true, false);
         Highlights.markArray(1, i);
       };
