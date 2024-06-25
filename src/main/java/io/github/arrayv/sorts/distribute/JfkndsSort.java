@@ -7,7 +7,7 @@ import io.github.arrayv.sorts.templates.BogoSorting;
 //NEVER result in the same data distribution as the previous.
 
 public final class JfkndsSort extends BogoSorting {
-  public BosoSort(ArrayVisualizer arrayvisualizer) {
+  public JfkndsSort (ArrayVisualizer arrayvisualizer) {
     super(arrayVisualizer);
     this.setSortListName("Jfknds");
     this.setRunAllSortsName("Jfknds Sort");
