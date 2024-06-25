@@ -18,7 +18,7 @@ public final class HalfSorting extends Sort {
         this.setSortListName("Half");
         this.setRunAllSortsName("Half-access Sorting");
         this.setRunSortName("Halfsorting");
-        this.setCategory("Theory Sorting");
+        this.setCategory("Miscellaneous Sorts");
         this.setBucketSort(false);
         this.setRadixSort(false);
         this.setUnreasonablySlow(false);
