@@ -83,7 +83,6 @@ public final class ArrayVisualizer {
     private enum StatisticType {
         LINE_BREAK,
         SORT_IDENTITY,
-        SHUFFLE_IDENTITY,
         ARRAY_LENGTH,
         FRAMERATE,
         SORT_DELAY,
@@ -101,7 +100,6 @@ public final class ArrayVisualizer {
         private static final Map<String, StatisticType> CONFIG_KEYS = Collections.unmodifiableMap(new HashMap<String, StatisticType>() {{
             put("",         LINE_BREAK);
             put("sort",     SORT_IDENTITY);
-            put("shuff",  SHUFFLE_IDENTITY);
             put("length",   ARRAY_LENGTH);
             put("fps",      FRAMERATE);
             put("delay",    SORT_DELAY);
@@ -154,7 +152,6 @@ public final class ArrayVisualizer {
     private final boolean disabledStabilityCheck;
 
     private String category;
-    private String shuffleType
     private String heading;
     private String extraHeading;
     private Font typeFace;
@@ -403,7 +400,6 @@ public final class ArrayVisualizer {
             // @checkstyle:off IndentationCheck - There's custom indentation here to make things more readable
             statsConfig = new StatisticType[] {
                 StatisticType.SORT_IDENTITY,
-                StatisticTyoe.SHUFFLE_IDENTITY
                 StatisticType.ARRAY_LENGTH,
                     StatisticType.LINE_BREAK,
                 StatisticType.SORT_DELAY,
@@ -635,9 +631,6 @@ public final class ArrayVisualizer {
                     continue;
                 case SORT_IDENTITY:
                     stat = statSnapshot.getSortIdentity();
-                    break;
-                case SHUFFLE_IDENTITY:
-                    stat = statSnapshot.getShuffleIdentity();
                     break;
                 case ARRAY_LENGTH:
                     stat = statSnapshot.getArrayLength();
@@ -968,9 +961,6 @@ public final class ArrayVisualizer {
     public String getCategory() {
         return this.category;
     }
-    public String getShuffle() {
-        return this.shuffleType;
-    }
     public String getHeading() {
         return this.heading;
     }
@@ -982,9 +972,6 @@ public final class ArrayVisualizer {
     }
     public void setCategory(String text) {
         this.category = text;
-    }
-    public void setShuffle(String text) {
-        this.shuffle = text;
     }
     public void setExtraHeading(String text) {
         this.extraHeading = text;
