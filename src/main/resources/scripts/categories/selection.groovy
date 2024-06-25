@@ -17,6 +17,4 @@ SortPrompt.setSortThreadForCategory('Selection Sorts', 18) {
     run SmoothSort go 2048.numbers, 1.5.speed
     run PoplarHeapSort go 2048.numbers
     run TournamentSort go 2048.numbers, 1.5.speed
-    run ClassicTournamentSort go 2048.numbers, 1.5.speed
-    run AsynchronousSort go 1024.numbers, 1.5.speed
 }
