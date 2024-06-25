@@ -20,7 +20,7 @@ public final class RodSort extends Sort {
         this.setRadixSort(false);
         this.setUnreasonablySlow(true);
         this.setUnreasonableLimit(1024);
-        this.setBogoSort(true);
+        this.setBogoSort(false);
     };
     
     public void runSort(int[] array, int length, int bucketCount) {
