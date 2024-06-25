@@ -2,10 +2,11 @@ import io.github.arrayv.prompts.SortPrompt
 import io.github.arrayv.utils.Shuffles
 
 SortPrompt.setSortThreadForCategory('Insertion Sorts', 14) {
-    run InsertionSort go 128.numbers, 0.005.speed
-    run DoubleInsertionSort go 128.numbers, 0.002.speed
-    run BinaryInsertionSort go 128.numbers, 0.025.speed
-    run ShellSort go 256.numbers, 0.1.speed
+    run InsertionSort go 1024.numbers, 1.speed
+    run DoubleInsertionSort go 1024.numbers, 1.speed
+    run BinaryInsertionSort go 1024.numbers, 8.speed
+    run BinaryDoubleInsertionSort go 1024.numbers, 8.speed
+    run ShellSort go 2048.numbers, 1.speed
     run RecursiveShellSort go 256.numbers, 0.1.speed
     run ShellSortParallel go 256.numbers, 0.1.speed
     run SimplifiedLibrarySort go 2048.numbers
