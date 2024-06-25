@@ -19,26 +19,29 @@ public final class RodSort extends Sort {
         this.setBucketSort(false);
         this.setRadixSort(false);
         this.setUnreasonablySlow(true);
-        this.setUnreasonableLimit(2048);
+        this.setUnreasonableLimit(1024);
         this.setBogoSort(true);
     };
     
     public void runSort(int[] array, int length, int bucketCount) {
-        //that's a very good grade, a++! /j
-        for(int a = 0; a < length - 1; a++) {
-            for(int i = a; i < length; i++) {
-                for(int j = a; j < length; j++) {
-                    if(Reads.compareValues(array[i], array[j]) == 1) {
-                        i = j;
-                        Delays.sleep(0.01);
-                        break;
-                    };
-                    Highlights.markArray(1, j);
-                    Highlights.markArray(2, i);
-                    Delays.sleep(0.01);
+		int h = 0; //highest element's index
+		int preserve; //preserve, i am going insane
+        for(int i = 0; i < length - 1; i++) {
+			h = i;
+			preserve = 0;
+            for(int j = i + 1; j < length; j++) {
+                Highlights.markArray(1, j);
+                Highlights.markArray(2, h);
+				Delays.sleep(0.05);
+				Reads.dummyCompare();
+                if(array[h] > array[j]) {
+                    h = j;
+					j = i + 1;
+                    Delays.sleep(0.05);
                 };
-                Writes.swap(array, i, a, 0.03, true, false);
+				
             };
+			Writes.swap(array, i, h, 0.05, true, false);
         };
     };
 };
