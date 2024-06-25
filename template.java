@@ -20,7 +20,7 @@ public final class NewSort extends Sort {
         this.setRadixSort(false);
         this.setUnreasonablySlow(false);
         this.setUnreasonableLimit(0);
-        this.setBogoSort(true);
+        this.setBogoSort(false);
     }
 
     public void runSort(int[] array, int length, int bucketCount) {
