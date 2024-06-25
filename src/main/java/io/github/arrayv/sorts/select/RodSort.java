@@ -14,9 +14,9 @@ public final class RodSort extends Sort {
     public RodSort(ArrayVisualizer arrayVisualizer) {
         super(arrayVisualizer);
 
-        this.setSortListName("New");
-        this.setRunAllSortsName("New Sort");
-        this.setRunSortName("Newsort");
+        this.setSortListName("Rod");
+        this.setRunAllSortsName("Rod Sort");
+        this.setRunSortName("Rodsort");
         this.setCategory("Impractical Sorts");
         this.setBucketSort(false);
         this.setRadixSort(false);
