@@ -24,6 +24,6 @@ public final class FlammerSort extends FlammerSorting {
     }
 
     public void runSort(int[] array, int length, int bucketCount) {
-        this.flammerSort(array, length, 0.33);
+        this.flammerSort(array, length, 0.1);
     }
 }
