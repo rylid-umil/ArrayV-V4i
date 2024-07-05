@@ -106,6 +106,34 @@ public abstract class BogoSorting extends Sort {
         for (int i = start; i < end; ++i)
             Writes.swap(array, i, BogoSorting.randInt(i, end), this.delay, true, aux);
     }
+    /**
+     * Bogo swap, but scans inbetween elements, and if it finds one that is the same as the first element its going to swap with, change that instead. If finds the same as the right
+     * Element, change the right to be the identical.
+    */
+    protected void stableBogoSwap(int[] array, int start, int end, boolean aux) {
+        for(int i = start; i < end; ++i) {
+            int left = i; // Set starting right value
+            int right = BogoSorting.randInt(left, end); // Set starting right index
+            int scanEnd = right;
+            int midpoint = (int) Math.ceil((i + end) / 2);
+            for(int j = i; j < scanEnd; j++) {
+                Highlights.markArray(1, j);
+                Highlights.markArray(2, left);
+                Highlights.markArray(3, right);
+                Delays.sleep(this.delay);
+                Delays.sleep(this.delay);
+                if(Reads.compareValues(array[left], array[j]) == 0 && j < right) {
+                    left = j;
+                    Delays.sleep(this.delay);
+                }
+                if(Reads.compareValues(array[right], j) == 0 && j > left) {
+                    right = j;
+                    Delays.sleep(this.delay);
+                }
+            }
+            Writes.swap(array, left, right, this.delay, true, aux);
+        }
+    }
 
     /**
      * Sets a random combination of {@code size} elements
