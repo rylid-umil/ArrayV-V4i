@@ -6,8 +6,8 @@ import io.github.arrayv.sorts.templates.BogoSorting;
 /**
  * A variation of Bogo Sort that scans between the two to-be-swapped items, changing the swap points if it finds identicals until the two collide
  */
-public final class BogoSort extends BogoSorting {
-    public BogoSort(ArrayVisualizer arrayVisualizer) {
+public final class StableBogoSort extends BogoSorting {
+    public StableBogoSort(ArrayVisualizer arrayVisualizer) {
         super(arrayVisualizer);
 
         this.setSortListName("Stable Bogo");
