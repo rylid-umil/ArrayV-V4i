@@ -1,4 +1,4 @@
-FONT: Times New Roman * 25
+FONT: Monospaced * 25
 # fps
 #
 sort
