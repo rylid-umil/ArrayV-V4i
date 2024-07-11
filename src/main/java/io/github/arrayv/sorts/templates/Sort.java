@@ -3,6 +3,7 @@ package io.github.arrayv.sorts.templates;
 import io.github.arrayv.main.ArrayVisualizer;
 import io.github.arrayv.utils.Delays;
 import io.github.arrayv.utils.Highlights;
+import io.github.arrayv.utils.MathExtra;
 import io.github.arrayv.utils.Reads;
 import io.github.arrayv.utils.Writes;
 import io.github.arrayv.sortdata.SortMeta;
@@ -16,6 +17,7 @@ public abstract class Sort {
     protected Highlights Highlights;
     protected Reads Reads;
     protected Writes Writes;
+    protected MathExtra MathExtra;
 
     protected Sort(ArrayVisualizer arrayVisualizer) {
         this.arrayVisualizer = arrayVisualizer;
