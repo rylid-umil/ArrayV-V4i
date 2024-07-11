@@ -1,6 +1,6 @@
 package io.github.arrayv.utils;
 
-import java.text.DecimalFormat
+import java.text.DecimalFormat;
 
 public final class MathExtra {
     public int logBase(n, base) {
