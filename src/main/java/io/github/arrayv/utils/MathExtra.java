@@ -9,6 +9,6 @@ public final class MathExtra {
     };
     public int nlogn(n) {
         int val = n * (Math.log(n));
-        return val
+        return val;
     };
 };
