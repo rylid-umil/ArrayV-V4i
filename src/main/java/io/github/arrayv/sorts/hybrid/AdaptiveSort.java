@@ -13,7 +13,7 @@ public final class AdaptiveSortNew extends Sort {
     public AdaptiveSortNew(ArrayVisualizer arrayVisualizer) {
         super(arrayVisualizer);
 
-        this.setSortListName("Adaptive");
+        this.setSortListName("5Adaptive");
         this.setRunAllSortsName("Adaptive Sort");
         this.setRunSortName("Adaptivesort");
         this.setCategory("Project Adaptive Sort");
