@@ -1,4 +1,4 @@
-package io.github.arrayv.sorts.exchange;
+package io.github.arrayv.sorts.joke;
 
 import io.github.arrayv.main.ArrayVisualizer;
 import io.github.arrayv.sorts.templates.Sort;
