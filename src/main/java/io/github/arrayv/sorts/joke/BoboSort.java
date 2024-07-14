@@ -29,7 +29,7 @@ public final class BogoSort extends BogoSorting {
         this.setBucketSort(false);
         this.setRadixSort(false);
         this.setUnreasonablySlow(true);
-        this.setUnreasonableLimit(0);
+        this.setUnreasonableLimit(1);
         this.setBogoSort(true);
     }
 
