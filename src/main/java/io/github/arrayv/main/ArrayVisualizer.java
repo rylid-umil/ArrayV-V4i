@@ -430,6 +430,7 @@ public final class ArrayVisualizer {
         this.formatter.setDecimalFormatSymbols(symbols);
 
         this.Highlights = new Highlights(this, this.maxArrayVal);
+        this.MathExtra = new MathExtra();
         this.Sounds = new Sounds(this.array, this);
         this.Delays = new Delays(this);
         this.Timer = new Timer(this);
@@ -786,6 +787,9 @@ public final class ArrayVisualizer {
     }
     public Highlights getHighlights() {
         return this.Highlights;
+    }
+    public MathExtra getMathExtra() {
+        return this.MathExtra;
     }
     public Reads getReads() {
         return this.Reads;
