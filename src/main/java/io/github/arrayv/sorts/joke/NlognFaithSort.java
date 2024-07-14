@@ -19,7 +19,7 @@ public final class NlognFaithSort extends Sort {
         this.setUnreasonableLimit(1);
         this.setBogoSort(false);
     }
-    public void faith(int array, int start, int end) {
+    public void faith(int[] array, int start, int end) {
         if (start == end) break;
         this.faith(array, start, ((start + end) / 2) - 1);
         this.faith(array, (start + end / 2), end);
