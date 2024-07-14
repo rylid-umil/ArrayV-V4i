@@ -6,11 +6,11 @@ import io.github.arrayv.sorts.insert.BinaryInsertionSort;
 import io.github.arrayv.sorts.select.MaxHeapSort;
 
 	//A sort meant to adapt to every situation. Stability and O(1) space complexity not included. WIP
-public final class AdaptiveSortNew extends Sort {
+public final class AdaptiveSort extends Sort {
 	private BinaryInsertionSort binaryInserter;
 	private MaxHeapSort maxHeapSorter;
 	private int runCount;
-    public AdaptiveSortNew(ArrayVisualizer arrayVisualizer) {
+    public AdaptiveSort(ArrayVisualizer arrayVisualizer) {
         super(arrayVisualizer);
 
         this.setSortListName("5Adaptive");
