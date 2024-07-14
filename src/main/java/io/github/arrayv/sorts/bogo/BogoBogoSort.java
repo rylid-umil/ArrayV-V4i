@@ -1,4 +1,4 @@
-package io.github.arrayv.sorts.distribute;
+package io.github.arrayv.sorts.bogo;
 
 import io.github.arrayv.main.ArrayVisualizer;
 import io.github.arrayv.sorts.templates.BogoSorting;
@@ -49,7 +49,7 @@ public final class BogoBogoSort extends BogoSorting {
         this.setSortListName("Bogo Bogo");
         this.setRunAllSortsName("Bogo Bogo Sort");
         this.setRunSortName("Bogobogosort");
-        this.setCategory("Impractical Sorts");
+        this.setCategory("Bogo Sorts");
         this.setBucketSort(false);
         this.setRadixSort(false);
         this.setUnreasonablySlow(true);

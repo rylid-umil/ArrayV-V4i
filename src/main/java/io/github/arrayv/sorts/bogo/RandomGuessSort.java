@@ -1,4 +1,4 @@
-package io.github.arrayv.sorts.distribute;
+package io.github.arrayv.sorts.bogo;
 
 import io.github.arrayv.main.ArrayVisualizer;
 import io.github.arrayv.sorts.templates.BogoSorting;
@@ -10,7 +10,7 @@ public final class RandomGuessSort extends BogoSorting {
         this.setSortListName("Random Guess");
         this.setRunAllSortsName("Random Guess Sort");
         this.setRunSortName("Random Guess Sort");
-        this.setCategory("Impractical Sorts");
+        this.setCategory("Bogo Sorts");
         this.setBucketSort(false);
         this.setRadixSort(false);
         this.setUnreasonablySlow(true);
