@@ -24,6 +24,7 @@ public abstract class Sort {
 
         this.Delays = arrayVisualizer.getDelays();
         this.Highlights = arrayVisualizer.getHighlights();
+        this.MathExtra = arrayVisualizer.getMathExtra();
         this.Reads = arrayVisualizer.getReads();
         this.Writes = arrayVisualizer.getWrites();
     }
