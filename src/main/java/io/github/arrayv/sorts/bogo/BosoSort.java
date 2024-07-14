@@ -1,4 +1,4 @@
- package io.github.arrayv.sorts.distribute;
+ package io.github.arrayv.sorts.bogo;
 
 import io.github.arrayv.main.ArrayVisualizer;
 import io.github.arrayv.sorts.templates.BogoSorting;
@@ -11,7 +11,7 @@ import io.github.arrayv.sorts.templates.BogoSorting;
      this.setSortListName("Boso");
      this.setRunAllSortsName("Boso Sort (Stupid Bubble Bogo Sort)");
      this.setRunSortName("Boso Sort");
-     this.setCategory("Impractical Sorts");
+     this.setCategory("Bogo Sorts");
      this.setComparisonBased(true);
      this.setBucketSort(false);
      this.setRadixSort(false);
