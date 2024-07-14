@@ -12,7 +12,7 @@ public final class BomoSort extends BogoSorting {
         super(arrayVisualizer);
 
         this.setSortListName("Bomo");
-        this.setRunAllSortsName("Bomo SOrt)");
+        this.setRunAllSortsName("Bomo Sort)");
         this.setRunSortName("Bomosort");
         this.setCategory("Bogo Sorts");
         this.setBucketSort(false);
