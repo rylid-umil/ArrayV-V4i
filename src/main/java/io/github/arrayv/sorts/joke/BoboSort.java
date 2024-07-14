@@ -18,8 +18,8 @@ If you take the "Bo" in bogo sort as shuffle and the "go" in bogo sort as the ch
 Basically a whilebogo sort
 
 */
-public final class BogoSort extends BogoSorting {
-    public BogoSort(ArrayVisualizer arrayVisualizer) {
+public final class BoboSort extends BogoSorting {
+    public BoboSort(ArrayVisualizer arrayVisualizer) {
         super(arrayVisualizer);
 
         this.setSortListName("Bobo");
