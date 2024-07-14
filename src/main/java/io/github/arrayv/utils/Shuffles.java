@@ -119,6 +119,20 @@ public enum Shuffles {
                 Writes.swap(array, i, random.nextInt(currentLen), delay ? 1 : 0, true, false);
         }
     },
+	//literally just swaps 2 random elements N times.
+	NAIVER {
+		public String getName() {
+			return "Naiver Randomly";
+		}
+		public void shuffleArray(int[] array, ArrayVisualizer arrayVisualizer, Delays Delays, Highlights Highlights, Writes Writes) {
+			int currentLen = arrayVisualizer.getCurrentLength();
+            boolean delay = arrayVisualizer.shuffleEnabled();
+			Random random = new Random();
+			for(int i = 0; i < currentLen-1; i++) {
+				Writes.swap(array, random.nextInt(currentLen), random.nextInt(currentLen), delay  ? 1 : 0, true, false);
+			}
+		}
+	},
     SHUFFLED_TAIL {
         public String getName() {
             return "Scrambled Tail";
@@ -303,6 +317,18 @@ public enum Shuffles {
                 Writes.write(array, i, temp[i], delay ? 1 : 0, true, false);
         }
     },
+	SLIGHT_SHIFT {
+		public String getName() {
+			return "Slight Shift";
+		}
+		public void shuffleArray(int[] array, ArrayVisualizer arrayVisualizer, Delays Delays, Highlights Highlights, Writes Writes) {
+			int currentLen = arrayVisualizer.getCurrentLength();
+            boolean delay = arrayVisualizer.shuffleEnabled();
+			for(int i = 0; i < currentLen-1; i += 2) {
+				Writes.swap(array, i, i+1, delay ? 1 : 0, true, false);
+			}
+		}
+	},
     ORGAN {
         public String getName() {
             return "Pipe Organ";
