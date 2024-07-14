@@ -20,7 +20,7 @@ public final class NlognFaithSort extends Sort {
         this.setBogoSort(false);
     }
     public void faith(int[] array, int start, int end) {
-        if (start == end) break;
+        if (start == end) return;
         this.faith(array, start, ((start + end) / 2) - 1);
         this.faith(array, (start + end / 2), end);
     };
