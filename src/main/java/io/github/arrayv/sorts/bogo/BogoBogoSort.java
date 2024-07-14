@@ -1,4 +1,4 @@
-package io.github.arrayv.sorts.distribute;
+package io.github.arrayv.sorts.bogo;
 
 import io.github.arrayv.main.ArrayVisualizer;
 import io.github.arrayv.sorts.templates.BogoSorting;
