@@ -11,6 +11,7 @@ import io.github.arrayv.panes.JErrorPane;
 import io.github.arrayv.sortdata.SortInfo;
 import io.github.arrayv.utils.Renderer;
 import io.github.arrayv.utils.Timer;
+import io.github.arrayv.utils.MathExtra;
 import io.github.arrayv.utils.*;
 import io.github.arrayv.visuals.Visual;
 import io.github.arrayv.visuals.VisualStyles;
@@ -190,6 +191,7 @@ public final class ArrayVisualizer {
 
     private final Delays Delays;
     private final Highlights Highlights;
+	private final MathExtra MathExtra;
     private final Reads Reads;
     private final Renderer renderer;
     private final Sounds Sounds;
