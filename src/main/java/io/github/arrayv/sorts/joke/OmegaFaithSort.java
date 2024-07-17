@@ -5,8 +5,8 @@ import io.github.arrayv.sorts.templates.Sort;
 
 // "The list is sorted in a way you cannot comprehend" - wise words
 
-public final class OmegaNewSort extends Sort {
-    public OmegaNewSort(ArrayVisualizer arrayVisualizer) {
+public final class OmegaSort extends Sort {
+    public OmegaSort(ArrayVisualizer arrayVisualizer) {
         super(arrayVisualizer);
 
         this.setSortListName("Omega Faith");
