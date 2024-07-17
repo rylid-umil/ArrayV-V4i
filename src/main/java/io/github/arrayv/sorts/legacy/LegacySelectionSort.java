@@ -35,7 +35,7 @@ public final class LegacySelectionSort extends Sort {
     public LegacySelectionSort(ArrayVisualizer arrayVisualizer) {
         super(arrayVisualizer);
 
-        this.setSortListName("Legacy Selection2");
+        this.setSortListName("Legacy Selection");
         this.setRunAllSortsName("Selection Sort");
         this.setRunSortName("Legacy Selection Sort");
         this.setCategory("Legacy");
