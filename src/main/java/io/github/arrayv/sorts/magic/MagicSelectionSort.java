@@ -1,7 +1,7 @@
-package io.github.arrayv.sorts.distribute;
+package io.github.arrayv.sorts.magic;
 
 import io.github.arrayv.main.ArrayVisualizer;
-import io.github.arrayv.sorts.templates.magic;
+import io.github.arrayv.sorts.templates.Sort;
 
 /**
  *
@@ -12,7 +12,7 @@ public final class MagicSelectionSort extends Sort {
     public MagicSelectionSort(ArrayVisualizer arrayVisualizer) {
         super(arrayVisualizer);
 
-        this.setSortListName("Magic Selection5");
+        this.setSortListName("Magic Selection");
         this.setRunAllSortsName("Magic Selection Sort");
         this.setRunSortName("Magic Selection Sort");
         this.setCategory("Magic Sorts");
