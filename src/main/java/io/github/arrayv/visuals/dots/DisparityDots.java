@@ -53,27 +53,27 @@ public final class DisparityDots extends Visual {
         if (arrayVisualizer.linesEnabled()) {
             double disp = (1 + Math.cos((Math.PI * (array[n-1] - (n-1))) / (arrayVisualizer.getCurrentLength() * 0.5))) * 0.5;
             double angle = Math.PI * (2d * (n - 1) / n - 0.5);
-            int lastX =  width/2 + (int)(disp * r * Math.cos(angle));
+            int lastX =  width/2 + (int)((disp * r * Math.cos(angle)) * 2.5);
             int lastY = height/2 + (int)(disp * r * Math.sin(angle));
-            this.mainRender.setStroke(arrayVisualizer.getCustomStroke(2));
+            this.mainRender.setStroke(arrayVisualizer.getCustomStroke(3));
 
             for (int i = 0; i < n; i++) {
                 if (Highlights.fancyFinishActive() && i < Highlights.getFancyFinishPosition()) {
                     this.mainRender.setColor(Color.GREEN);
                 } else if (Highlights.containsPosition(i)) {
                     this.mainRender.setColor(Color.BLACK);
-                    this.mainrender.setStroke(arrayVisualizer.getCustomStroke(4));
+                    this.mainrender.setStroke(arrayVisualizer.getCustomStroke(6));
                 } else if (arrayVisualizer.colorEnabled())
                     this.mainRender.setColor(getIntColor(array[i], arrayVisualizer.getCurrentLength()));
 
                 else this.mainRender.setColor(Color.WHITE);
 
                 disp = (1 + Math.cos((Math.PI * (array[i] - i)) / (arrayVisualizer.getCurrentLength() * 0.5))) * 0.5;
-                int x =  width/2 + (int)(disp * r * Math.cos(Math.PI * (2d*i / n - 0.5)));
+                int x =  width/2 + (int)((disp * r * Math.cos(Math.PI * (2d*i / n - 0.5)))*2.5);
                 int y = height/2 + (int)(disp * r * Math.sin(Math.PI * (2d*i / n - 0.5)));
 
                 this.mainRender.drawLine(lastX, lastY, x, y);
-                this.mainRender.setStroke(arrayVisualizer.getCustomStroke(2));
+                this.mainRender.setStroke(arrayVisualizer.getCustomStroke(3));
 
                 lastX = x;
                 lastY = y;
@@ -92,20 +92,21 @@ public final class DisparityDots extends Visual {
                 else this.mainRender.setColor(Color.WHITE);
 
                 double disp = (1 + Math.cos((Math.PI * (array[i] - i)) / (arrayVisualizer.getCurrentLength() * 0.5))) * 0.5;
-                int x =  width/2 + (int)(disp * r * Math.cos(Math.PI * (2d*i / n - 0.5)));
+                int x =  width/2 + (int)((disp * r * Math.cos(Math.PI * (2d*i / n - 0.5)))*2.5);
                 int y = height/2 + (int)(disp * r * Math.sin(Math.PI * (2d*i / n - 0.5)));
 
                 this.mainRender.fillRect(x, y, dotS, dotS);
             }
             this.mainRender.setColor(Color.BLACK);
+			this.mainrender.setStroke(arrayVisualizer.getCustomStroke(6));
 
             for (int i = 0; i < n; i++) {
                 if (Highlights.containsPosition(i)) {
                     double disp = (1 + Math.cos((Math.PI * (array[i] - i)) / (arrayVisualizer.getCurrentLength() * 0.5))) * 0.5;
-                    int x =  width/2 + (int)(disp * r * Math.cos(Math.PI * (2d*i / n - 0.5)));
+                    int x =  width/2 + (int)((disp * r * Math.cos(Math.PI * (2d*i / n - 0.5)))*2.5);
                     int y = height/2 + (int)(disp * r * Math.sin(Math.PI * (2d*i / n - 0.5)));
 
-                    this.mainRender.fillRect(x, y, dotS, dotS);
+                    this.mainRender.fillRect(x, y, dotS*2, dotS*2);
                 }
             }
         }
