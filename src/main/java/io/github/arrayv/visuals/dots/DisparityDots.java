@@ -104,7 +104,7 @@ public final class DisparityDots extends Visual {
                     int x =  width/2 + (int)(disp * r * Math.cos(Math.PI * (2d*i / n - 0.5)));
                     int y = height/2 + (int)(disp * r * Math.sin(Math.PI * (2d*i / n - 0.5)));
 
-                    this.mainRender.fillRect(xS, y, dotS, dotS);
+                    this.mainRender.fillRect(x, y, dotS, dotS);
                 }
             }
         }
