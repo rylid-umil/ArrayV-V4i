@@ -62,6 +62,7 @@ public final class DisparityDots extends Visual {
                     this.mainRender.setColor(Color.GREEN);
                 } else if (Highlights.containsPosition(i)) {
                     this.mainRender.setColor(Color.BLACK);
+                    this.mainrender.setStroke(arrayVisualizer.getCustomStroke(4));
                 } else if (arrayVisualizer.colorEnabled())
                     this.mainRender.setColor(getIntColor(array[i], arrayVisualizer.getCurrentLength()));
 
