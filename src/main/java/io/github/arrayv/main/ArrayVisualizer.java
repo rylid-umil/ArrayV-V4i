@@ -1066,7 +1066,7 @@ public final class ArrayVisualizer {
         return new BasicStroke((float) (this.getWindowRatio()));
     }
     public Stroke getCustomStroke(double size) {
-        return new BasicStroke((float) (size * this.getWindowRatio()));
+        return new BasicStroke((float) ((size * this.getWindowRatio()) * 2));
     }
     public Graphics2D getMainRender() {
         return this.mainRender;
