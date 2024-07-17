@@ -96,7 +96,7 @@ public final class DisparityDots extends Visual {
 
                 this.mainRender.fillRect(x, y, dotS, dotS);
             }
-            this.mainRender.setColor(arrayVisualizer.getHighlightColor());
+            this.mainRender.setColor(Color.BLACK);
 
             for (int i = 0; i < n; i++) {
                 if (Highlights.containsPosition(i)) {
@@ -104,7 +104,7 @@ public final class DisparityDots extends Visual {
                     int x =  width/2 + (int)(disp * r * Math.cos(Math.PI * (2d*i / n - 0.5)));
                     int y = height/2 + (int)(disp * r * Math.sin(Math.PI * (2d*i / n - 0.5)));
 
-                    this.mainRender.fillRect(x - 2*dotS, y - 2*dotS, 4*dotS, 4*dotS);
+                    this.mainRender.fillRect(x - 2*dotS, y - 2*dotS, 1.5*dotS, 1.5*dotS);
                 }
             }
         }
