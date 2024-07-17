@@ -84,19 +84,7 @@ public final class ColorCircle extends Visual {
                     if (arrayVisualizer.analysisEnabled()) this.extraRender.setColor(Color.LIGHT_GRAY);
                     else                                  this.extraRender.setColor(Color.WHITE);
 
-                    double angle1 = Math.PI * ((2d * i - 1) / n - 0.5);
-                    px[0] =  width/2 + (int)((r + p/4) * Math.cos(angle1));
-                    py[0] = height/2 + (int)((r + p/4) * Math.sin(angle1));
-
-                    double angle2 = Math.PI * ((2d * i - 1) / n - 0.67);
-                    px[1] = px[0] + (int)(p * Math.cos(angle2));
-                    py[1] = py[0] + (int)(p * Math.sin(angle2));
-
-                    double angle3 = Math.PI * ((2d * i - 1) / n - 0.33);
-                    px[2] = px[0] + (int)(p * Math.cos(angle3));
-                    py[2] = py[0] + (int)(p * Math.sin(angle3));
-
-                    this.extraRender.fillPolygon(px, py, 3);
+                    this.mainRender.setColor(Color.BLACK);
                 }
             }
 
