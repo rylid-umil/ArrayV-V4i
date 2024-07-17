@@ -64,14 +64,14 @@ public final class ColorCircle extends Visual {
         y[0] = height/2;
 
         double angle = Math.PI * (2d * (n - 1) / n - 0.5);
-        x[2] =  width/2 + (int)(r * Math.cos(angle));
+        x[2] =  width/2 + (int)((r * Math.cos(angle) * 2.5));
         y[2] = height/2 + (int)(r * Math.sin(angle));
 
         for (int i = 0; i < n; i++) {
             x[1] = x[2];
             y[1] = y[2];
 
-            x[2] =  width/2 + (int)(r * Math.cos(Math.PI * (2d*i / n - 0.5)));
+            x[2] =  width/2 + (int)((r * Math.cos(Math.PI * (2d*i / n - 0.5)))*2.5);
             y[2] = height/2 + (int)(r * Math.sin(Math.PI * (2d*i / n - 0.5)));
 
             if (Highlights.fancyFinishActive() && i < Highlights.getFancyFinishPosition())
