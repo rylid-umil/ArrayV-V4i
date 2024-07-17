@@ -60,10 +60,8 @@ public final class DisparityDots extends Visual {
             for (int i = 0; i < n; i++) {
                 if (Highlights.fancyFinishActive() && i < Highlights.getFancyFinishPosition()) {
                     this.mainRender.setColor(Color.GREEN);
-                    this.mainRender.setStroke(arrayVisualizer.getCustomStroke(4));
                 } else if (Highlights.containsPosition(i)) {
-                    this.mainRender.setColor(arrayVisualizer.getHighlightColor());
-                    this.mainRender.setStroke(arrayVisualizer.getCustomStroke(4));
+                    this.mainRender.setColor(Color.BLACK);
                 } else if (arrayVisualizer.colorEnabled())
                     this.mainRender.setColor(getIntColor(array[i], arrayVisualizer.getCurrentLength()));
 
