@@ -196,7 +196,8 @@ public final class RunSort {
                         Sort sortInstance = sortInfo.getFreshInstance();
 
                         if (sortInfo.getRunName().equals("In-Place LSD Radix")) {
-                            sounds.changeVolume(0.01); // Here to protect your ears :)
+                            sounds.changeVolume(0.2); // Here to protect your ears :)
+                            // RYLID-UMIL'S NOTE: louder hhahahahaaha
                         }
 
                         arrayManager.toggleMutableLength(false);
