@@ -532,7 +532,7 @@ public final class ArrayVisualizer {
                 io.github.arrayv.utils.Renderer.initializeVisuals(ArrayVisualizer.this);
 
                 Graphics background = ArrayVisualizer.this.window.getGraphics();
-                background.setColor(Color.getHSBColor(0, 0, 0.1));
+                background.setColor(Color.getHSBColor(0, 0, 0.1F));
                 int coltmp = 255;
 
                 ArrayVisualizer.this.visualClasses = new Visual[15];
@@ -1090,7 +1090,7 @@ public final class ArrayVisualizer {
     }
 
     public void renderBackground() {
-        this.mainRender.setColor(Color.getHSBColor(0, 0, 0.1)); // dark grey
+        this.mainRender.setColor(Color.getHSBColor(0, 0, 0.1F)); // dark grey
         this.mainRender.fillRect(0, 0, this.img.getWidth(null), this.img.getHeight(null));
     }
 
