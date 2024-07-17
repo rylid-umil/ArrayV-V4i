@@ -13,7 +13,7 @@ public final class AdaptiveSort extends Sort {
     public AdaptiveSort(ArrayVisualizer arrayVisualizer) {
         super(arrayVisualizer);
 
-        this.setSortListName("5Adaptive");
+        this.setSortListName("Adaptive");
         this.setRunAllSortsName("Adaptive Sort");
         this.setRunSortName("Adaptivesort");
         this.setCategory("Project Adaptive Sort");
@@ -52,7 +52,6 @@ public final class AdaptiveSort extends Sort {
         else {
             int low = start;
             int high = mid;
-		this.runCount = this.runCount - 1;
 
             for(int nxt = 0; nxt < end - start; nxt++){
                 if(low >= mid && high >= end) break;
@@ -100,13 +99,147 @@ public final class AdaptiveSort extends Sort {
                 if (Reads.compareIndices(a, j, j + 1, 0.5, true) > 0) {
                     Writes.swap(a, j, j + 1, 1.0, true, false);
                     sorted = false;
-                }
-            }
+                };
+            };
             if (sorted)
                 break;
+        };
+    };
+	//i take- i mean borrow from AdaptiveGrailSort.java :D
+	public void multiSwap(int[] array, int a, int b, int len) {
+        for(int i = 0; i < len; i++)
+            Writes.swap(array, a+i, b+i, 1, true, false);
+    }
+	// steal- i mean borrowing go brrrr
+	public int leftBinarySearch(int[] array, int a, int b, int val) {
+        while(a < b) {
+            int m = a+(b-a)/2;
+
+            if(Reads.compareValues(val, array[m]) <= 0)
+                b = m;
+            else
+                a = m+1;
         }
+
+        return a;
+    }
+	public int rightBinarySearch(int[] array, int a, int b, int val) {
+        while(a < b) {
+            int m = a+(b-a)/2;
+
+            if(Reads.compareValues(val, array[m]) < 0)
+                b = m;
+            else
+                a = m+1;
+        }
+
+        return a;
+    }
+	public void insertTo(int[] array, int a, int b) {
+        Highlights.clearMark(2);
+        int temp = array[a];
+        while(a > b) Writes.write(array, a, array[(a--)-1], 0.5, true, false);
+        Writes.write(array, b, temp, 0.5, true, false);
     }
 
+    public void insertToBW(int[] array, int a, int b) {
+        Highlights.clearMark(2);
+        int temp = array[a];
+        while(a < b) Writes.write(array, a, array[(a++)+1], 0.5, true, false);
+        Writes.write(array, a, temp, 0.5, true, false);
+    }
+	public void rotate(int[] array, int a, int m, int b) {
+        int l = m-a, r = b-m;
+
+        while(l > 1 && r > 1) {
+            if(r < l) {
+                this.multiSwap(array, m-r, m, r);
+                b -= r;
+                m -= r;
+                l -= r;
+            }
+            else {
+                this.multiSwap(array, a, m, l);
+                a += l;
+                m += l;
+                r -= l;
+            }
+        }
+
+        Highlights.clearMark(2);
+        if(r == 1)      this.insertTo(array, m, a);
+        else if(l == 1) this.insertToBW(array, a, b-1);
+    }
+	public void inPlaceMerge(int[] array, int a, int m, int b) {
+        int i = a, j = m, k;
+
+        while(i < j && j < b) {
+            if(Reads.compareValues(array[i], array[j]) > 0) {
+                k = this.leftBinarySearch(array, j+1, b, array[i]);
+                this.rotate(array, i, j, k);
+
+                i += k-j;
+                j = k;
+            }
+            else i++;
+        }
+    }
+    public void inPlaceMergeBW(int[] array, int a, int m, int b) {
+        int i = m-1, j = b-1, k;
+
+        while(j > i && i >= a){
+            if(Reads.compareValues(array[i], array[j]) > 0) {
+                k = this.rightBinarySearch(array, a, i, array[j]);
+                this.rotate(array, k, i+1, j+1);
+
+                j -= (i+1)-k;
+                i = k-1;
+            }
+            else j--;
+        }
+    }
+	public void mergeWithoutBuf(int[] array, int a, int m, int b) {
+        if(m-a > b-m) this.inPlaceMergeBW(array, a, m, b);
+        else          this.inPlaceMerge(array, a, m, b);
+    }
+	public void redistBuffer(int[] array, int a, int m, int b) {
+        int rPos = this.leftBinarySearch(array, m, b, array[a]);
+        this.rotate(array, a, m, rPos);
+
+        int dist = rPos-m;
+        a += dist;
+        m += dist;
+
+        int a1 = a+(m-a)/2;
+        rPos = this.leftBinarySearch(array, m, b, array[a1]);
+        this.rotate(array, a1, m, rPos);
+
+        dist = rPos-m;
+        a1  += dist;
+        m   += dist;
+
+        this.mergeWithoutBuf(array, a, a1-dist, a1);
+        this.mergeWithoutBuf(array, a1, m, b);
+    }
+    public void redistBufferBW(int[] array, int a, int m, int b) {
+        int rPos = this.rightBinarySearch(array, a, m, array[b-1]);
+        this.rotate(array, rPos, m, b);
+
+        int dist = m-rPos;
+        b -= dist;
+        m -= dist;
+
+        int b1 = m+(b-m)/2;
+        rPos = this.rightBinarySearch(array, a, m, array[b1-1]);
+        this.rotate(array, rPos, m, b1);
+
+        dist = m-rPos;
+        b1  -= dist;
+        m   -= dist;
+
+        this.mergeWithoutBuf(array, b1, b1+dist, b);
+        this.mergeWithoutBuf(array, a, m, b1);
+    }
 	//Find two consecutive sorted runs to merge. Unlike this sort's previous version, it relies on out of order elements instead of start and end markers from an aux array.
 	public int findTwoRunsToMerge(int[] array, int[] tmp, int start, int end) {
 		int state = 0;
@@ -130,13 +263,54 @@ public final class AdaptiveSort extends Sort {
 					state = 2;
 					found = true;
 					right = i;
+					this.runCount = this.runCount - 1;
+					int lengthLeft = mid - left;
+					int lengthRight = (right - mid) + 1;
+					int lengthAll = lengthLeft + lengthRight;
+					int leftToRight = lengthLeft / lengthRight; // leftRun:rightRun
+					Highlights.clearMark(1);
+					Highlights.clearMark(2);
+					Highlights.clearMark(3);
+					Highlights.clearMark(4);
+					if (lengthLeft == lengthRight && Reads.compareIndices(array, left, right, 5, true) != -1) {
+						for(int j = start; j < mid; j++) {
+							Writes.swap(array, j, j + lengthRight, 1, true, false);
+						};
+						return right + 1;
+					}
+					else if (leftToRight <= 0.5) {
+						this.redistBuffer(array, left, mid, right + 1);
+						return right + 1;
+					}
+					else if (leftToRight >= 2) {
+						this.redistBufferBW(array, left, mid, right + 1);
+						return right + 1;
+					}
 					this.merge(array, tmp, left, mid, right + 1, false);
 					return right + 1;
 				};
 			};
 			if(found) {
-				this.merge(array, tmp, left, mid, right + 1, false);
-				return right + 1;
+				int lengthLeft = (mid - left) - 1;
+					int lengthRight = (right - mid) + 1;
+					int lengthAll = lengthLeft + lengthRight;
+					int leftToLenRatio = lengthLeft / lengthAll; // leftToLenRatio:1
+					int rightToLenRatio = lengthRight / lengthAll; // leftToLenRatio:1
+					if (lengthLeft == lengthRight && Reads.compareIndices(array, left, right, 5, true) != -1) {
+						for(int j = start; j < mid; j++) {
+							Writes.swap(array, j, j + lengthRight, 1, true, false);
+						};
+					}
+					else if (leftToLenRatio < 0.33) {
+						this.redistBuffer(array, left, mid, right);
+					}
+					else if (rightToLenRatio < 0.33) {
+						this.redistBufferBW(array, left, mid, right);
+					}
+					else {
+						this.merge(array, tmp, left, mid, right + 1, false);
+					};
+					return right + 1;
 			}
 		};
 		return -1;
@@ -203,7 +377,7 @@ public final class AdaptiveSort extends Sort {
         return swapCount;
     };
 	// PDQ's insertion with a customizable limit.
-    private boolean partialInsertSort(int[] array, int begin, int end, int maxWriteLimit) {
+    public boolean partialInsertSort(int[] array, int begin, int end, int maxWriteLimit) {
         if (begin == end) return true;
 
         double sleep = 1/5d;
@@ -229,14 +403,42 @@ public final class AdaptiveSort extends Sort {
         };
         return true;
     };
-	//Actions to take when there are more than n/2 sublists. Do an iterative circle pass and count the swaps. If more than NlogN swaps,
-	//do an "optimistic insertion sort" and stopping when it reaches n/3 swaps. If it never does, you're done.
+	// Cocktail shaker sort with max passes. 1 pass = 1 back and fourth bubble pass
+	public boolean clearingCocktailShaker(int[] array, int start, int end, int maxRounds) {
+		boolean sorted = false;
+		int rounds = 0;
+		while(!sorted) {
+			sorted = true;
+			for(int i = start; i < end; i++) {
+				if(Reads.compareIndices(array, i, i + 1, 0.075, true) == 1) {
+					Writes.swap(array, i, i + 1, 0.15, true, false);
+					sorted = false;
+				};
+			};
+			for(int j = end; j > start; j--) {
+				if(Reads.compareIndices(array, j, j - 1, 0.075, true) == 1) {
+					Writes.swap(array, j, j - 1, 0.15, true, false);
+					sorted = false;
+				};
+			};
+			rounds++;
+			if (rounds > maxRounds) return false;
+		};
+		return true;
+	};
+	//Actions to take when there are more than n/2.35 sublists. Do an iterative circle pass and count the swaps. If more than Nlog10N swaps,
+	//do an "optimistic insertion sort" and stopping when it reaches n/3 swaps. If it never does, you're done. if it does reach it, do an
+	// "optimistic cocktail shaker sort" and stopping when it reaches n/64 (min 2) rounds. If it never does, you're done!
 	public boolean tooManySublists(int[] array, int start, int end) {
 		int swaps = this.circleSortRoutine(array, start, end, 0.3);
-		int length = end - start;
-		if(swaps > MathExtra.nlogn(length)) {
-			int maxLimit = (int) Math.floor(length / 3);
-			boolean good = this.partialInsertSort(array, start, end, maxLimit);
+		int length = (end - start) + 1;
+		if(swaps > length * (MathExtra.logBase(length, 10))) {
+			int insertMaxLimit = (int) Math.floor(length / 3);
+			int shakerMaxLimit = (int) Math.floor(Math.max(length / 64, 2));
+			boolean good = this.partialInsertSort(array, start, end, insertMaxLimit);
+			if (!good) {
+				good = this.clearingCocktailShaker(array, start, end, shakerMaxLimit);
+			};
 			return good;
 		};
 		return false;
@@ -259,7 +461,7 @@ public final class AdaptiveSort extends Sort {
 		};
 		this.runCount = this.countSublists(array, 0, end); // Count sublists
 		if (runCount == 1) return;		// If there's only one run, there's no need to sort, it's already sorted. TODO: replace with function that stops early if it detects an unsorted element
-		if (runCount > length / 1.7) {
+		if (runCount > length / 2.35) {
 			if (this.tooManySublists(array, 0, end)) return;
 		};
 		int potentialRunSize = (int) Math.min(Math.round(length/32), 64);
@@ -268,6 +470,10 @@ public final class AdaptiveSort extends Sort {
 		while (runCount > 1) {
 			this.mergeRound(array, tmp, 0, end); // Merge
 		};
+		Highlights.clearMark(1);
+		Highlights.clearMark(2);
+		Highlights.clearMark(3);
+		Highlights.clearMark(4);
 		Highlights.clearAllMarks();
     };
 };
