@@ -1090,7 +1090,7 @@ public final class ArrayVisualizer {
     }
 
     public void renderBackground() {
-        this.mainRender.setColor(DARK_GRAY); // dark grey
+        this.mainRender.setColor(Color.DARK_GRAY); // dark grey
         this.mainRender.fillRect(0, 0, this.img.getWidth(null), this.img.getHeight(null));
     }
 
