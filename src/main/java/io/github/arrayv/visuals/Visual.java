@@ -20,7 +20,7 @@ public abstract class Visual {
     }
 
     public static Color getIntColor(int i, int length) {
-        return Color.getHSBColor(((float) i / length), 1F, 1F);
+        return Color.getHSBColor(((float) i / length), 1F, 0.6F);
     }
 
     public static void markBar(Graphics2D bar, boolean color, boolean rainbow, boolean analysis) {
