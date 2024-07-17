@@ -79,11 +79,13 @@ public final class ColorCircle extends Visual {
 
             else {
                 this.mainRender.setColor(getIntColor(array[i], arrayVisualizer.getCurrentLength()));
-
-                if (Highlights.containsPosition(i)) {
+                boolean highlighted = Highlights.containsPosition(i);
+                if (!highlighted) highlighted = Highlights.containsPosition(i + 1);
+                if (!highlighted) highlighted = Highlights.containsPosition(i - 1);
+                if (highlighted) {
                     if (arrayVisualizer.analysisEnabled()) {
-                        this.mainRender.setColor(Color.BLACK);
-                    } else this.mainRender.setColor(Color.DARK_GRAY);
+                        this.mainRender.setColor(Color.DARK_GRAY);
+                    } else this.mainRender.setColor(Color.BLACK);
                 }
             }
 
