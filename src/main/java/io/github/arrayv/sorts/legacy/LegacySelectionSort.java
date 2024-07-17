@@ -35,7 +35,7 @@ public final class LegacySelectionSort extends Sort {
     public LegacySelectionSort(ArrayVisualizer arrayVisualizer) {
         super(arrayVisualizer);
 
-        this.setSortListName("Legacy Selection");
+        this.setSortListName("Legacy Selection2");
         this.setRunAllSortsName("Legacy Selection Sort");
         this.setRunSortName("Legacy Selection Sort");
         this.setCategory("Legacy");
@@ -50,13 +50,12 @@ public final class LegacySelectionSort extends Sort {
     public void runSort(int[] array, int length, int bucketCount) {
         for (int i = 0; i < length - 1; i++) {
             int lowestindex = i;
-
+			Highlights.markArray(3, i);
             for (int j = i + 1; j < length; j++) {
                 Delays.sleep(0.01);
 
                 if (Reads.compareValues(array[j], array[lowestindex]) == -1){
                     lowestindex = j;
-                    Highlights.markArray(1, lowestindex);
                     Delays.sleep(0.01);
                 }
             }
