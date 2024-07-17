@@ -31,8 +31,8 @@ Selection sort but altered to sound like what it does in the originl worthy vide
  *
  */
 
-public final class SelectionSort extends Sort {
-    public SelectionSort(ArrayVisualizer arrayVisualizer) {
+public final class LegacySelectionSort extends Sort {
+    public LegacySelectionSort(ArrayVisualizer arrayVisualizer) {
         super(arrayVisualizer);
 
         this.setSortListName("Legacy Selection");
