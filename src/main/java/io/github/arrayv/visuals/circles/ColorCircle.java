@@ -80,8 +80,8 @@ public final class ColorCircle extends Visual {
             else {
                 this.mainRender.setColor(getIntColor(array[i], arrayVisualizer.getCurrentLength()));
                 boolean highlighted = Highlights.containsPosition(i);
-                if (!highlighted) highlighted = Highlights.containsPosition(i + 1);
-                if (!highlighted) highlighted = Highlights.containsPosition(i - 1);
+                if (!highlighted && i < n) highlighted = Highlights.containsPosition(i + 1);
+                if (!highlighted && i > 0) highlighted = Highlights.containsPosition(i - 1);
                 if (highlighted) {
                     if (arrayVisualizer.analysisEnabled()) {
                         this.mainRender.setColor(Color.DARK_GRAY);
