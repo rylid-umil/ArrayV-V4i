@@ -25,8 +25,8 @@ public final class YeetSort extends Sort {
     };
 
     public void runSort(int[] array, int length, int bucketCount) {
-        boolean sorted = true;
-        for(int i = length - 1; i > 0; i--) {
+        boolean sorted = false;
+        while(!sorted) {
             sorted = true;
             for(int j = 0; j < length - 1; j++) {
                 Highlights.markArray(1, j);
