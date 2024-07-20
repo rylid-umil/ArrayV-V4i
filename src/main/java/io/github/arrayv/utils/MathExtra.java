@@ -8,7 +8,7 @@ public final class MathExtra {
         return val;
     };
     public double nlogn(double n) {
-        double val = n * (Math.log(n));
+        double val = n * (Math.log10(n));
         return val;
     };
 };
