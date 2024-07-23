@@ -35,7 +35,7 @@ public final class LegacyDoubleSelectionSort extends Sort {
     public LegacyDoubleSelectionSort(ArrayVisualizer arrayVisualizer) {
         super(arrayVisualizer);
 
-        this.setSortListName("Legacy Double Selection2");
+        this.setSortListName("Legacy Double Selection");
         this.setRunAllSortsName("Double Selection Sort");
         this.setRunSortName("Legacy Double Selection Sort");
         this.setCategory("Legacy");
