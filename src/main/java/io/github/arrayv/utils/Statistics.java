@@ -90,7 +90,7 @@ public final class Statistics {
         return this.sortCategory + ": " + this.sortHeading;
     }
     public String getShuffle() {
-        return this.shuffle;
+        return "Shuffle:" + this.shuffle;
     }
     public String getArrayLength() {
         return this.arrayLength + this.sortExtraHeading;
