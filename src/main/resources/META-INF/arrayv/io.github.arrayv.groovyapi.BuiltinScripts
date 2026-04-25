@@ -26,6 +26,7 @@ scripts/categories/selection.groovy
 scripts/categories/insertion.groovy
 scripts/categories/merge.groovy
 scripts/categories/distribute.groovy
+scripts/categories/magic.groovy
 scripts/categories/concurrent.groovy
 scripts/categories/hybrid.groovy
 scripts/categories/misc.groovy
