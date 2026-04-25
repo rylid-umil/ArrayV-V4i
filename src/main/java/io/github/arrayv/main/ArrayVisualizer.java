@@ -990,6 +990,9 @@ public final class ArrayVisualizer {
     public void setCategory(String text) {
         this.category = text;
     }
+	public void setShuffle(String text) {
+        this.shuffle = text;
+    }
     public void setExtraHeading(String text) {
         this.extraHeading = text;
     }
