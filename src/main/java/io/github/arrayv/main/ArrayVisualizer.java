@@ -84,7 +84,7 @@ public final class ArrayVisualizer {
     private enum StatisticType {
         LINE_BREAK,
         SORT_IDENTITY,
-		SHUFFLE,
+		SHUFFLE_IDENTITY,
         ARRAY_LENGTH,
         FRAMERATE,
         SORT_DELAY,
@@ -102,7 +102,7 @@ public final class ArrayVisualizer {
         private static final Map<String, StatisticType> CONFIG_KEYS = Collections.unmodifiableMap(new HashMap<String, StatisticType>() {{
             put("",         LINE_BREAK);
             put("sort",     SORT_IDENTITY);
-			put("shuffle",  SHUFFLE);
+			put("shuffle",  SHUFFLE_IDENTITY);
             put("length",   ARRAY_LENGTH);
             put("fps",      FRAMERATE);
             put("delay",    SORT_DELAY);
@@ -156,6 +156,7 @@ public final class ArrayVisualizer {
 
     private String category;
 	private String shuffle;
+	private String distribution;
     private String heading;
     private String extraHeading;
     private Font typeFace;
@@ -488,9 +489,10 @@ public final class ArrayVisualizer {
 
         this.category = "";
 		this.shuffle = "";
+		this.distribution = "";
         this.heading = "";
         this.extraHeading = "";
-        this.typeFace = new Font(fontSelection, Font.PLAIN, (int) (this.getWindowRatio() * fontSelectionScale));
+        this.typeFace = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/font.ttf")).deriveFont((int) (this.getWindowRatio() * fontSelectionScale)));
 
         this.statSnapshot = new Statistics(this);
 
@@ -640,8 +642,8 @@ public final class ArrayVisualizer {
                 case SORT_IDENTITY:
                     stat = statSnapshot.getSortIdentity();
                     break;
-				case SHUFFLE:
-                    stat = statSnapshot.getShuffle();
+				case SHUFFLE_IDENTITY:
+                    stat = statSnapshot.getShuffleIdentity();
                     break;
                 case ARRAY_LENGTH:
                     stat = statSnapshot.getArrayLength();
@@ -978,6 +980,9 @@ public final class ArrayVisualizer {
 	public String getShuffle() {
         return this.shuffle;
     }
+	public String getDistribution() {
+        return this.distribution;
+    }
     public String getHeading() {
         return this.heading;
     }
@@ -1120,7 +1125,7 @@ public final class ArrayVisualizer {
         return this.cw / 1280d;
     }
     public void updateFontSize() {
-        this.typeFace = new Font(fontSelection, Font.PLAIN, (int) (this.getWindowRatio() * fontSelectionScale));
+        this.typeFace = this.typeFace.deriveFont((int) (this.getWindowRatio() * fontSelectionScale));
         this.mainRender.setFont(this.typeFace);
     }
 
