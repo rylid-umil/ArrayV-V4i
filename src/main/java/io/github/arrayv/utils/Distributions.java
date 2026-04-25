@@ -340,6 +340,23 @@ public enum Distributions {
             }
         }
     },
+    ALTLOHI {
+        public String getName() {
+            return "Alternating Low-High";
+        }
+        @Override
+        public void initializeArray(int[] array, ArrayVisualizer arrayVisualizer) {
+            int currentLen = arrayVisualizer.getCurrentLength();
+            boolean alt = false;
+            for (int i = 0; i < currentLen; i++) {
+                if (alt) {
+                    array[i] = currentLen;
+                } else {
+                    array[i] = 0;
+                }
+            }
+        }
+    },
     BLANCMANGE {
         public String getName() {
             return "Blancmange Curve";
@@ -472,6 +489,21 @@ public enum Distributions {
 
             for (int i = 0; i < currentLen; i++){
                 int r = random.nextInt(currentLen - i) + i;
+                array[i] = r;
+            }
+        }
+    },
+    INCRAND {
+        public String getName() {
+            return "Increasing Random";
+        }
+        @Override
+        public void initializeArray(int[] array, ArrayVisualizer arrayVisualizer) {
+            int currentLen = arrayVisualizer.getCurrentLength();
+            Random random = new Random();
+
+            for (int i = 0; i < currentLen; i++){
+                int r = random.nextInt(i + 1);
                 array[i] = r;
             }
         }
