@@ -196,7 +196,7 @@ public final class RunSort {
                         Sort sortInstance = sortInfo.getFreshInstance();
 
                         if (sortInfo.getRunName().equals("In-Place LSD Radix")) {
-                            sounds.changeVolume(0.2); // Here to protect your ears :)
+                            sounds.changeVolume(0.5); // Here to protect your ears :)
                             // RYLID-UMIL'S NOTE: louder hhahahahaaha
                         }
 
@@ -205,6 +205,15 @@ public final class RunSort {
 
                         arrayVisualizer.setHeading(sortInfo.getRunName());
                         arrayVisualizer.setCategory(sortInfo.getCategory());
+                        ShuffleGraph shuf = arrayVisualizer.getArrayManager().getShuffle();
+                        String name = "";
+                        if (shuf.size() == 1) {
+                            name = shuf.iterateConnectedNodes().next().getShuffleName();
+                        } else {
+                            name = "Advanced (" + shuf.size + " shuffles)";
+                        };
+                        arrayVisualizer.setShuffle(name);
+                        arrayVisualizer.setDistribution(arrayVisualizer.getArrayManager().getDistribution().getName());
 
                         realTimer.enableRealTimer();
                         boolean antiq = arrayVisualizer.useAntiQSort();
