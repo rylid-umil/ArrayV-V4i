@@ -11,7 +11,7 @@ A modified comb sort with decreasing gap mid-run.
  */
  
  @SortMeta(
-    name = "Shrivel2",
+    name = "Shrivel",
     category = "Exchange Sorts",
     question = "Enter shrink factor (input/100):",
     defaultAnswer = 150
