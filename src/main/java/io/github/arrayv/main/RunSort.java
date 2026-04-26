@@ -208,12 +208,12 @@ public final class RunSort {
                         ShuffleGraph shuf = arrayVisualizer.getArrayManager().getShuffle();
                         String name = "";
                         if (shuf.size() == 1) {
-                            name = shuf.iterateConnectedNodes().next().getShuffleName();
+                            name = shuf.iterateConnectedNodes().next().getValue().getShuffle().getName();
                         } else {
                             name = "Advanced (" + shuf.size() + " shuffles)";
                         };
                         arrayVisualizer.setShuffle(name);
-                        arrayVisualizer.setDistribution(arrayVisualizer.getArrayManager().getDistribution().getName())
+                        arrayVisualizer.setDistribution(arrayVisualizer.getArrayManager().getDistribution().getName());
 
                         realTimer.enableRealTimer();
                         boolean antiq = arrayVisualizer.useAntiQSort();
