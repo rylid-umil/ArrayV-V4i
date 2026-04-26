@@ -5,6 +5,7 @@ import io.github.arrayv.sorts.templates.BogoSorting;
 
 //literally sets random integers from 0 to max. if its sorted, good. Probably will
 //NEVER result in the same data distribution as the previous.
+// Note 2: changed to only be sorted if the array = the sorted array (array figured out via counting sort)
 
 public final class JfkndsSort extends BogoSorting {
      public JfkndsSort(ArrayVisualizer arrayVisualizer) {
@@ -23,14 +24,42 @@ public final class JfkndsSort extends BogoSorting {
   } 
   
   @Override
+  public boolean sameArray(int[] array, int[] auxArray) {
+       for (int i = 0; i < array.length(); i++) {
+            Highlights.markArray(1, i);
+            if (compareValues(array[i], auxArray[i]) != 0) {
+                 return false;
+            }
+       }
+       return true;
+  }
   public void runSort(int[] array, int length, int bucketCount) {
+  int max = Reads.analyzeMax(array, sortLength, 0, false);
+
+   int[] output = Writes.copyOfArray(array, sortLength);
+   int[] counts = Writes.createExternalArray(max + 1);
+
+   for (int i = 0; i < sortLength; i++) {
+       Writes.write(counts, array[i], counts[array[i]] + 1, 1, false, true);
+       Highlights.markArray(1, i);
+   }
+
+   for (int i = 1; i < counts.length; i++) {
+       Writes.write(counts, i, counts[i] + counts[i - 1], 1, true, true);
+   }
+
+   for (int i = sortLength - 1; i >= 0; i--) {
+       output[counts[array[i]] - 1] = array[i];
+       counts[array[i]]--;
+   }
+   Writes.deleteExternalArray(counts);
     int min = Reads.analyzeMin(array, length, 0.05, true);
-    int max = Reads.analyzeMax(array, length, 0.05, true);
-    while (!this.isArraySorted(array, length)) {
+    while (!this.sameArray(array, output)) {
       for (int i = 0; i < length; i++) {
         Writes.write(array, i, BogoSorting.randInt(min, max), this.delay, true, false);
         Highlights.markArray(1, i);
       };
     };
+       Writes.deleteExternalArray(output);
   };
 };
