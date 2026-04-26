@@ -39,7 +39,7 @@ public final class BaiaiSort extends Sort {
                 Highlights.markArray(2, j + 1);
                 Delays.sleep(0.025);
             }
-            if(sorted) break;
+            if(sorted) return;
             if (limit < length - 2) limit++;
         }
 }
