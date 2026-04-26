@@ -22,18 +22,17 @@ public final class JfkndsSort extends BogoSorting {
          this.setUnreasonableLimit(13);
          this.setBogoSort(true);
   } 
-  
-  @Override
   public boolean sameArray(int[] array, int[] auxArray) {
        for (int i = 0; i < array.length; i++) {
             Highlights.markArray(1, i);
-            Delays.sleep(this.delay);
             if (Reads.compareValues(array[i], auxArray[i]) != 0) {
                  return false;
             }
        }
        return true;
   }
+  
+  @Override
   public void runSort(int[] array, int length, int bucketCount) {
   int max = Reads.analyzeMax(array, length, 0, false);
 
