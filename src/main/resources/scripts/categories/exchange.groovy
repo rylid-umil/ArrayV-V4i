@@ -26,6 +26,7 @@ SortPrompt.setSortThreadForCategory('Exchange Sorts', 33) {
     run ShrivelSort go 512.numbers, 130.buckets, ((arrayv.arrayManager.containsShuffle(Shuffles.RANDOM) ? 1.5 : 5).speed)
     run CircleSortRecursive go 1024.numbers
     run CircleSortIterative go 1024.numbers
+    run FlexSort go 1024.numbers, 130.buckets
     run CircloidSort go 1024.numbers
     run LLQuickSort go 2048.numbers, ((arrayv.arrayManager.containsShuffle(Shuffles.RANDOM) ? 1.5 : 5).speed)
     run LRQuickSort go 2048.numbers
