@@ -23,7 +23,7 @@ SortPrompt.setSortThreadForCategory('Exchange Sorts', 33) {
     run ThreeSmoothCombSortParallel go 1024.numbers, 1.75.speed
     run ThreeSmoothCombSortIterative go 1024.numbers, 1.75.speed
     run ClassicThreeSmoothCombSort go 1024.numbers, 1.75.speed
-    run ShrivelSort go 512.numbers, 130.buckets, ((arrayv.arrayManager.containsShuffle(Shuffles.RANDOM) ? 1.5 : 5).speed)
+    run ShrivelSort go 128.numbers, 130.buckets, ((arrayv.arrayManager.containsShuffle(Shuffles.RANDOM) ? 0.125 : 1.5).speed)
     run CircleSortRecursive go 1024.numbers
     run CircleSortIterative go 1024.numbers
     run FlexSort go 1024.numbers, 130.buckets
