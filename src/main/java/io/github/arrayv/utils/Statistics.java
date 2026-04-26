@@ -8,6 +8,8 @@ public final class Statistics {
     private long frameTimeMillis;
 
     private String sortCategory;
+    private String shuffle;
+    private String distribution;
     private String sortHeading;
     private String sortExtraHeading;
     private String arrayLength;
