@@ -2,6 +2,7 @@ FONT: Monospaced * 25
 # fps
 #
 sort
+shuffle
 length
 
 delay
