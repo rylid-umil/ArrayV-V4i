@@ -210,7 +210,7 @@ public final class RunSort {
                         if (shuf.size() == 1) {
                             name = shuf.iterateConnectedNodes().next().getShuffleName();
                         } else {
-                            name = "Advanced (" + shuf.size() + " shuffles)"
+                            name = "Advanced (" + shuf.size() + " shuffles)";
                         };
                         arrayVisualizer.setShuffle(name);
                         arrayVisualizer.setDistribution(arrayVisualizer.getArrayManager().getDistribution().getName())
