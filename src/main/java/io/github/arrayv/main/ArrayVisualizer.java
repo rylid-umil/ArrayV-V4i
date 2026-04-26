@@ -493,7 +493,11 @@ public final class ArrayVisualizer {
 		this.distribution = "";
         this.heading = "";
         this.extraHeading = "";
-        this.typeFace = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/font.ttf")).deriveFont((int) (this.getWindowRatio() * fontSelectionScale));
+        try {
+            this.typeFace = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/font.ttf")).deriveFont((int) (this.getWindowRatio() * fontSelectionScale));
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
 
         this.statSnapshot = new Statistics(this);
 
