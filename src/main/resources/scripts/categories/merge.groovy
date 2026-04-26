@@ -1,12 +1,13 @@
 import io.github.arrayv.prompts.SortPrompt
 
-SortPrompt.setSortThreadForCategory('Merge Sorts', 17) {
+SortPrompt.setSortThreadForCategory('Merge Sorts', 18) {
     run MergeSort go 2048.numbers, 1.5.speed
     run BottomUpMergeSort go 2048.numbers, 1.5.speed
     run MergeSortParallel go 2048.numbers, 1.5.speed
     run IterativeTopDownMergeSort go 2048.numbers, 1.5.speed
     run WeavedMergeSort go 2048.numbers, 1.5.speed
     run TwinSort go 2048.numbers, 1.5.speed
+    run Quadsort go 2048.numbers, 1 speed
     run PDMergeSort go 2048.numbers
     run InPlaceMergeSort go 2048.numbers, 1.5.speed
     run ImprovedInPlaceMergeSort go 2048.numbers, 1.5.speed
