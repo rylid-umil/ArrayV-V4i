@@ -159,7 +159,7 @@ public final class ArrayVisualizer {
 	private String distribution;
     private String heading;
     private String extraHeading;
-    private Font ;
+    private Font typeFace;
     private final DecimalFormat formatter;
 
     private volatile int currentGap;
@@ -228,6 +228,7 @@ public final class ArrayVisualizer {
         UIManager.getLookAndFeelDefaults().put("Slider.paintValue", Boolean.FALSE); // GTK PLAF fix
 
         this.window = new JFrame();
+        
         this.window.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -997,6 +998,9 @@ public final class ArrayVisualizer {
     }
 	public void setShuffle(String text) {
         this.shuffle = text;
+    }
+    public void setDistribution(String text) {
+        this.distribution = text;
     }
     public void setExtraHeading(String text) {
         this.extraHeading = text;
