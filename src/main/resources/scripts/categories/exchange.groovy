@@ -5,7 +5,7 @@ SortPrompt.setSortThreadForCategory('Exchange Sorts', 33) {
     run UnoptimizedBubbleSort go 512.numbers, 1.5.speed
     run BubbleSort go 512.numbers, 1.5.speed
     run OptimizedBubbleSort go 512.numbers, 1.5.speed
-    run SwaplessBubbleSort go 512.numbers, 1.5 speed
+    run SwaplessBubbleSort go 512.numbers, 1.5.speed
     run UnoptimizedCocktailShakerSort go 512.numbers, 1.25.speed
     run CocktailShakerSort go 512.numbers, 1.25.speed
     run OptimizedCocktailShakerSort go 512.numbers, 1.25.speed
@@ -13,7 +13,7 @@ SortPrompt.setSortThreadForCategory('Exchange Sorts', 33) {
     run CenterLinkSort go 512.numbers
     run OptimizedStoogeSortStudio go 512.numbers
     run FunSort go 256.numbers, 2.speed
-    run PullSort go 256 numbers, 0.5.speed
+    run PullSort go 256.numbers, 0.5.speed
     run GnomeSort go 128.numbers, 0.025.speed
     run OptimizedGnomeSort go 128.numbers, 0.025.speed
     run BinaryGnomeSort go 128.numbers, 0.065.speed
