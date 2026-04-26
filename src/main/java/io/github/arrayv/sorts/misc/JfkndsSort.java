@@ -27,7 +27,8 @@ public final class JfkndsSort extends BogoSorting {
   public boolean sameArray(int[] array, int[] auxArray) {
        for (int i = 0; i < array.length(); i++) {
             Highlights.markArray(1, i);
-            if (compareValues(array[i], auxArray[i]) != 0) {
+            Delays.sleep(this.delay);
+            if (Reads.compareValues(array[i], auxArray[i]) != 0) {
                  return false;
             }
        }
