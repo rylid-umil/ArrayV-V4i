@@ -91,7 +91,7 @@ public final class Statistics {
         return this.sortCategory + ": " + this.sortHeading;
     }
     public String getShuffleIdentity() {
-        return "Shuffle: " + this.shuffle + " on " this.distribution;
+        return "Shuffle: " + this.shuffle + " on " + this.distribution;
     }
     public String getArrayLength() {
         return this.arrayLength + this.sortExtraHeading;
