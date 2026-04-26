@@ -9,8 +9,8 @@ SortPrompt.setSortThreadForCategory('Exchange Sorts', 33) {
     run UnoptimizedCocktailShakerSort go 512.numbers, 1.25.speed
     run CocktailShakerSort go 512.numbers, 1.25.speed
     run OptimizedCocktailShakerSort go 512.numbers, 1.25.speed
-    run OddEvenSort go 512.numbers
-    run CenterLinkSort go 512.numbers
+    run OddEvenSort go 512.numbers, 1.5.speed
+    run CenterLinkSort go 512.numbers, 2.speed
     run OptimizedStoogeSortStudio go 512.numbers
     run FunSort go 256.numbers, 2.speed
     run PullSort go 256.numbers, 0.5.speed
@@ -23,7 +23,7 @@ SortPrompt.setSortThreadForCategory('Exchange Sorts', 33) {
     run ThreeSmoothCombSortParallel go 1024.numbers, 1.75.speed
     run ThreeSmoothCombSortIterative go 1024.numbers, 1.75.speed
     run ClassicThreeSmoothCombSort go 1024.numbers, 1.75.speed
-    run ShrivelSort go 128.numbers, 130.buckets, ((arrayv.arrayManager.containsShuffle(Shuffles.RANDOM) ? 0.125 : 1.5).speed)
+    run ShrivelSort go 128.numbers, 130.buckets, ((arrayv.arrayManager.containsShuffle(Shuffles.RANDOM) ? 0.05 : 1).speed)
     run CircleSortRecursive go 1024.numbers
     run CircleSortIterative go 1024.numbers
     run FlexSort go 1024.numbers, 130.buckets
