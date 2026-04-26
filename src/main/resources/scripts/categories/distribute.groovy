@@ -1,6 +1,6 @@
 import io.github.arrayv.prompts.SortPrompt
 
-SortPrompt.setSortThreadForCategory('Distribution Sorts', 18) {
+SortPrompt.setSortThreadForCategory('Distribution Sorts', 19) {
     run CountingSort go 2048.numbers, 1.5.speed
     run PigeonholeSort go 2048.numbers, 1.5.speed
     run GravitySort go 1024.numbers, 0.5.speed
