@@ -1,7 +1,7 @@
 import io.github.arrayv.prompts.SortPrompt
 import io.github.arrayv.utils.Shuffles
 
-SortPrompt.setSortThreadForCategory('Exchange Sorts', 29) {
+SortPrompt.setSortThreadForCategory('Exchange Sorts', 33) {
     run UnoptimizedBubbleSort go 512.numbers, 1.5.speed
     run BubbleSort go 512.numbers, 1.5.speed
     run OptimizedBubbleSort go 512.numbers, 1.5.speed
@@ -10,8 +10,10 @@ SortPrompt.setSortThreadForCategory('Exchange Sorts', 29) {
     run CocktailShakerSort go 512.numbers, 1.25.speed
     run OptimizedCocktailShakerSort go 512.numbers, 1.25.speed
     run OddEvenSort go 512.numbers
+    run CenterLinkSort go 512.numbers
     run OptimizedStoogeSortStudio go 512.numbers
     run FunSort go 256.numbers, 2.speed
+    run PullSort go 256 numbers, 0.5.speed
     run GnomeSort go 128.numbers, 0.025.speed
     run OptimizedGnomeSort go 128.numbers, 0.025.speed
     run BinaryGnomeSort go 128.numbers, 0.065.speed
@@ -21,6 +23,7 @@ SortPrompt.setSortThreadForCategory('Exchange Sorts', 29) {
     run ThreeSmoothCombSortParallel go 1024.numbers, 1.75.speed
     run ThreeSmoothCombSortIterative go 1024.numbers, 1.75.speed
     run ClassicThreeSmoothCombSort go 1024.numbers, 1.75.speed
+    run ShrivelSort go 512.numbers, 130.buckets, ((arrayv.arrayManager.containsShuffle(Shuffles.RANDOM) ? 1.5 : 5).speed)
     run CircleSortRecursive go 1024.numbers
     run CircleSortIterative go 1024.numbers
     run CircloidSort go 1024.numbers
