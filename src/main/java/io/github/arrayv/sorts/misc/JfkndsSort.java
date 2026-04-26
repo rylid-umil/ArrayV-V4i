@@ -34,12 +34,12 @@ public final class JfkndsSort extends BogoSorting {
        return true;
   }
   public void runSort(int[] array, int length, int bucketCount) {
-  int max = Reads.analyzeMax(array, sortLength, 0, false);
+  int max = Reads.analyzeMax(array, length, 0, false);
 
-   int[] output = Writes.copyOfArray(array, sortLength);
+   int[] output = Writes.copyOfArray(array, length);
    int[] counts = Writes.createExternalArray(max + 1);
 
-   for (int i = 0; i < sortLength; i++) {
+   for (int i = 0; i < length; i++) {
        Writes.write(counts, array[i], counts[array[i]] + 1, 1, false, true);
        Highlights.markArray(1, i);
    }
@@ -48,7 +48,7 @@ public final class JfkndsSort extends BogoSorting {
        Writes.write(counts, i, counts[i] + counts[i - 1], 1, true, true);
    }
 
-   for (int i = sortLength - 1; i >= 0; i--) {
+   for (int i = length - 1; i >= 0; i--) {
        output[counts[array[i]] - 1] = array[i];
        counts[array[i]]--;
    }
