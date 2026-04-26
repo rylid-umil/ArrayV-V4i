@@ -9,7 +9,7 @@ public final class AttackSort extends Sort {
     public AttackSort(ArrayVisualizer arrayVisualizer) {
         super(arrayVisualizer);
 
-        this.setSortListName("Attack234567891234");
+        this.setSortListName("Attack");
         this.setRunAllSortsName("Attack Sort");
         this.setRunSortName("Attack Sort");
         this.setCategory("Hybrid Sorts");
