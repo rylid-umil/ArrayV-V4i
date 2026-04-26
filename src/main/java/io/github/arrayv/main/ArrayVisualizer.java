@@ -407,7 +407,7 @@ public final class ArrayVisualizer {
             // @checkstyle:off IndentationCheck - There's custom indentation here to make things more readable
             statsConfig = new StatisticType[] {
                 StatisticType.SORT_IDENTITY,
-				StatisticType.SHUFFLE,
+				StatisticType.SHUFFLE_IDENTITY,
                 StatisticType.ARRAY_LENGTH,
                     StatisticType.LINE_BREAK,
                 StatisticType.SORT_DELAY,
