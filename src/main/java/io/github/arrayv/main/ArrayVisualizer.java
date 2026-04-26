@@ -494,7 +494,7 @@ public final class ArrayVisualizer {
         this.heading = "";
         this.extraHeading = "";
         try {
-            this.typeFace = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/font.ttf")).deriveFont((int) (this.getWindowRatio() * fontSelectionScale));
+            this.typeFace = Font.createFont(Font.TRUETYPE_FONT, new File("fonts/font.ttf")).deriveFont((float) (this.getWindowRatio() * fontSelectionScale));
         } catch(Exception e) {
             e.printStackTrace();
         }
@@ -1133,7 +1133,7 @@ public final class ArrayVisualizer {
         return this.cw / 1280d;
     }
     public void updateFontSize() {
-        this.typeFace = this.typeFace.deriveFont((int) (this.getWindowRatio() * fontSelectionScale));
+        this.typeFace = this.typeFace.deriveFont((float) (this.getWindowRatio() * fontSelectionScale));
         this.mainRender.setFont(this.typeFace);
     }
 
