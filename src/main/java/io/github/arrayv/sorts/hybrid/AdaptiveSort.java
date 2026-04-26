@@ -16,7 +16,7 @@ public final class AdaptiveSort extends Sort {
         this.setSortListName("Adaptive");
         this.setRunAllSortsName("Adaptive Sort");
         this.setRunSortName("Adaptivesort");
-        this.setCategory("Project Adaptive Sort");
+        this.setCategory("Hybrid Sorts");
         this.setBucketSort(false);
         this.setRadixSort(false);
         this.setUnreasonablySlow(false);
