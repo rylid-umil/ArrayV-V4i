@@ -5,7 +5,7 @@ SortPrompt.setSortThreadForCategory('Hybrid Sorts', 38) {
     run HybridCombSort go 1024.numbers
     run IntroCircleSortRecursive go 1024.numbers
     run IntroCircleSortIterative go 1024.numbers
-    run FlexCombSort go 1024 numbers, 130.buckets
+    run FlexCombSort go 1024.numbers, 130.buckets
     run BinaryMergeSort go 2048.numbers
     run MergeInsertionSort go 2048.numbers, 1.75.speed
     run WeaveMergeSort go 2048.numbers, ((arrayv.arrayManager.containsShuffle(Shuffles.RANDOM) ? 1.65 : 6.5).speed)
