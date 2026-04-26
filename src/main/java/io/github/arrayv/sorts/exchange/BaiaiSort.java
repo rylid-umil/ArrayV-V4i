@@ -26,7 +26,7 @@ public final class BaiaiSort extends Sort {
 
     @Override
     public void runSort(int[] array, int length, int bucketCount) {
-        int limit = 1
+        int limit = 1;
         boolean sorted = false;
         while(!sorted)
             for(int j = 0; j < limit; j++) {
@@ -40,6 +40,6 @@ public final class BaiaiSort extends Sort {
                 Delays.sleep(0.025);
             }
             if(sorted) break;
-            if (limit < length - 2) limit++
+            if (limit < length - 2) limit++;
         }
 }
