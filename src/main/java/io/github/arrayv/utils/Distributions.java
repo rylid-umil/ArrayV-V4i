@@ -354,6 +354,7 @@ public enum Distributions {
                 } else {
                     array[i] = 0;
                 }
+                alt = !alt;
             }
         }
     },
