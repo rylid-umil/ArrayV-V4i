@@ -350,7 +350,7 @@ public enum Distributions {
             boolean alt = false;
             for (int i = 0; i < currentLen; i++) {
                 if (alt) {
-                    array[i] = currentLen;
+                    array[i] = currentLen-1;
                 } else {
                     array[i] = 0;
                 }
