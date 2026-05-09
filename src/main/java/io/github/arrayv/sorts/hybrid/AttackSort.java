@@ -4,6 +4,8 @@ import io.github.arrayv.main.ArrayVisualizer;
 import io.github.arrayv.sorts.templates.Sort;
 import io.github.arrayv.sorts.insert.InsertionSort;
 
+/* Credit to aphitorite for fixing an issue with the sort */
+
 public final class AttackSort extends Sort {
 	private InsertionSort insertionSorter;
     public AttackSort(ArrayVisualizer arrayVisualizer) {
@@ -21,23 +23,22 @@ public final class AttackSort extends Sort {
     };
 	public void attack(int[] array, int start, int end) {
 		insertionSorter = new InsertionSort(this.arrayVisualizer);
-		if (end - start < 16) {
-			if (end - start > 1) insertionSorter.customInsertSort(array, start, end + 1, 1, false);
+		if (end+1 - start < 16) {
+			if (end > start) insertionSorter.customInsertSort(array, start, end + 1, 1, false);
 			return;
 		};
-		int endp = end + 1;
 		int subLength = start + Math.min(end - start + 1, Math.min(8, Math.max(end - start / 32, 2)));
-		insertionSorter.customInsertSort(array, start, subLength + 1, 1, false);
+		insertionSorter.customInsertSort(array, start, subLength, 1, false);
 		int a = 0,
 			b = 0;
-		for (int i = subLength; i >= start; i--) {
-			a = subLength + 1;
+		for (int i = subLength-1; i >= start; i--) {
+			a = subLength;
 			Highlights.markArray(3, i);
-			for (b = a; b < end + 1; b++) {
+			for (b = a; b <= end; b++) {
 				Highlights.markArray(1, a);
 				Highlights.markArray(2, b);
 				Delays.sleep(0.167);
-				if (Reads.compareValues(array[i], array[b]) == 1) {
+				if (Reads.compareValues(array[i], array[b]) > 0) {
 					Writes.swap(array, a, b, 0.33, true, false);
 					a++;
 				};
@@ -46,11 +47,12 @@ public final class AttackSort extends Sort {
 			end = a - 1;
 			Highlights.clearAllMarks();
 			Writes.swap(array, i, a - 1, 1, true, false);
-			attack(array, a - 1, b);
+			attack(array, a, b-1);
 		}
 		attack(array, start, a - 2);
     };
-    public void runSort(int[] array, int length, int bucketCount) {
-		attack(array, 0, length - 1);
+	
+    public void runSort(int[] array, int length, int bucketCount) { 
+		attack(array, 0, length-1);
     };
 };
