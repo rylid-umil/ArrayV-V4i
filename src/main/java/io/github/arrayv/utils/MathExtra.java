@@ -11,4 +11,7 @@ public final class MathExtra {
         double val = n * (Math.log10(n));
         return val;
     };
+    public double ceilDiv(double a, double b) {
+        return Math.ceil(a / b);
+    }
 };
