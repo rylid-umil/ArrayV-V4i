@@ -20,7 +20,7 @@ public final class CircleSortIterative extends IterativeCircleSorting {
         super(arrayVisualizer);
 
         this.setSortListName("Circle (Iterative)");
-        this.setRunAllSortsName("Iterative Circle Sort");
+        this.setRunAllSortsName("Circle Sort (Iterative)");
         this.setRunSortName("Iterative Circlesort");
         this.setCategory("Exchange Sorts");
         this.setBucketSort(false);
