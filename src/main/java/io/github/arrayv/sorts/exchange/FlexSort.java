@@ -11,15 +11,15 @@ import io.github.arrayv.sorts.templates.Sort;
  */
  
  @SortMeta(
-	listName = "Flex (Iterative)",
-	showcaseName = "Iterative Flex Sort",
-	runName = "Iterative Flex Sort",
+	listName = "Flex",
+	showcaseName = "Flex Sort",
+	runName = "Flex Sort",
 	category = "Exchange Sorts",
     question = "Enter shrink factor (input/100):",
     defaultAnswer = 120
 )
-public final class FlexSortIterative extends Sort {
-    public FlexSortIterative(ArrayVisualizer arrayVisualizer) {
+public final class FlexSort extends Sort {
+    public FlexSort(ArrayVisualizer arrayVisualizer) {
         super(arrayVisualizer);
     }
 
