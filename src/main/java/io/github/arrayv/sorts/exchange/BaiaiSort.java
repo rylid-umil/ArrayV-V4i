@@ -26,21 +26,29 @@ public final class BaiaiSort extends Sort {
 
     @Override
     public void runSort(int[] array, int length, int bucketCount) {
-        int limit = 1;
-        boolean sorted = false;
-        while(!sorted)
-            for(int j = 0; j < limit; j++) {
+        int limit = 0;
+        boolean flip = false,
+                sorted = false,
+                alt = false;
+        do {
+            sorted = true;
+            for(int j = alt ? 1 : 0; j <= limit; j += 2) {
                 if(Reads.compareValues(array[j], array[j + 1]) == 1){
                     Writes.swap(array, j, j + 1, 0.075, true, false);
                     sorted = false;
                 }
-
                 Highlights.markArray(1, j);
                 Highlights.markArray(2, j + 1);
                 Delays.sleep(0.025);
             }
-            if(sorted && limit >= length - 2) return;
-            if (limit < length - 2) limit++;
-            sorted = true;
-        }
+            if(limit < length - 2 && !flip) sorted = false;
+            if (limit == length - 2 && !flip) flip = true;
+            if(!flip) {
+                limit++;
+            } else if (limit > 0) {
+                limit--;
+            }
+            alt = !alt;
+        } while(!sorted);
+    }
 }
