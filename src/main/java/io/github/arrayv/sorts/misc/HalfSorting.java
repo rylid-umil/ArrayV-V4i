@@ -110,3 +110,4 @@ public final class HalfSorting extends Sort {
         }
         binaryInserter.customBinaryInsert(array, 0, z, 0.1);
     }
+}
